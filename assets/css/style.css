@@ -1,5 +1,6 @@
+
 body {
-  background-color: black;
+  background-color: #331D23;
   color: white;
   font-family: sans-serif; /* Choose your preferred font family */
   margin: 0; /* Remove default margin */
@@ -16,4 +17,12 @@ header {
 .centered-name {
   font-size: 4em; /* Increase font size for emphasis (optional) */
   margin: 0; /* Remove default margin */
+}
+
+.circular-image {
+  border-radius: 50%; /* Make the image a circle */
+  border: 2px solid black; /* Add a black outline with desired width */
+  width: 400px; /* Set the desired width of the image */
+  height: 400px; /* Set the desired height of the image */
+  object-fit: cover; /* Ensure entire image area is filled while maintaining aspect ratio */
 }
