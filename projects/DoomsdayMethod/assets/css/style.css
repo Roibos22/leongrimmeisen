@@ -54,4 +54,9 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  color: whi
+  color: white;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 10; /* Set a higher z-index to ensure it stays on top */
+}
