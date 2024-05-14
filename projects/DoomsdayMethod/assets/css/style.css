@@ -1,3 +1,6 @@
+
+/* --------------- General --------------- */
+
 body {
   background-color: #003566;
   color: white;
@@ -5,11 +8,38 @@ body {
   margin: 0; /* Remove default margin */
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vh;
+  margin-bottom: 70px;
 }
 
-/* Ensures navbar stays on top of the page */
+.body-text-center {
+  text-align: center;
+  max-width: 100%;
+}
+
+.body-text-left {
+  text-align: left;
+  max-width: 80%;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1em;
+}
+
+/* --------------- NavBar --------------- */
+
 nav {
   position: fixed;
   top: 0;
@@ -18,45 +48,72 @@ nav {
   padding-top: 20px;
   width: 100%;
   margin:  0 auto;
-  z-index: 10; /* Set a higher z-index to ensure it stays on top */
+  height: 10vh;
+  z-index: 10;
 }
 
 nav ul {
-  list-style: none; /* Remove default bullet points */
-  margin: 0; /* Remove default margin */
+  list-style: none;
+  margin: 0;
   padding: 0;
-  display: flex; /* Use flexbox for horizontal arrangement */
-  justify-content: center; /* Distribute links evenly */
+  display: flex;
+  justify-content: center;
 }
 
 nav li {
-  display: inline-block; /* Display list items horizontally */
+  display: inline-block;
 }
 
 nav a {
-  color: inherit; /* Inherit color from parent element (nav) */
-  text-decoration: none; /* Remove underline from links */
+  color: inherit;
+  text-decoration: none;
   font-weight: bold;
   padding: 30px;
 }
 
-/* Hover effect for black background */
 nav a:hover {
-  color: black; /* Maintain white text on black hover */
+  color: black; 
 }
 
-/* Active link styling for underlining */
 nav li.active a {
   color: black;
 }
 
-footer {
+/* --------------- Footer --------------- */
+
+.footer {
+  height: 10vh;  /* Adjust height as needed */
   position: fixed;
   bottom: 0;
-  left: 0;
-  color: white;
-  padding-bottom: 10px;
   width: 100%;
   text-align: center;
-  z-index: 10; /* Set a higher z-index to ensure it stays on top */
+  left: 0;
 }
+
+/* --------------- index.html --------------- */
+
+.index-body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+.image1 {
+  width: 150px;
+}
+
+.image2 {
+  width: 130px;
+}
+
+/* --------------- contact.html --------------- */
+/* --------------- privacy-policy.html --------------- */
+/* --------------- terms-and-conditions.html --------------- */
+/* --------------- resources.html --------------- */
+
+
+
