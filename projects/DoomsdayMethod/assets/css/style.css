@@ -4,15 +4,23 @@
 body {
   background-color: #003566;
   color: white;
-  font-family: sans-serif; /* Choose your preferred font family */
-  margin: 0; /* Remove default margin */
+  font-family: sans-serif;
+  margin: 0;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  min-height: 80vh;
-  margin-bottom: 70px;
+  min-height: 100vh;
+  height: 100%;
+  /* padding-top: 50px; */
 }
+
+main {
+  padding: 20px;
+  max-width: 80%;
+  flex-grow: 1; /* Allows the main content to grow and fill the available space */
+}
+
 
 .body-text-center {
   text-align: center;
@@ -40,15 +48,11 @@ p {
 
 /* --------------- NavBar --------------- */
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
+.nav {
   color: white;
-  padding-top: 20px;
+  /* background-color:aqua ; */
+  padding: 20px 20px;
   width: 100%;
-  margin:  0 auto;
-  height: 10vh;
   z-index: 10;
 }
 
@@ -82,12 +86,9 @@ nav li.active a {
 /* --------------- Footer --------------- */
 
 .footer {
-  height: 10vh;  /* Adjust height as needed */
-  position: fixed;
-  bottom: 0;
   width: 100%;
+  /* background-color:aqua; */
   text-align: center;
-  left: 0;
 }
 
 /* --------------- index.html --------------- */
