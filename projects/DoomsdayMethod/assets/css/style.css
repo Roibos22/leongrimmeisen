@@ -1,120 +1,110 @@
 
-/* --------------- General --------------- */
+.main-container {
+  display: flex; /* Enable flexbox for the container */
+  flex-direction: column; /* Stack elements vertically */
+  min-height: 100vh; /* Set minimum height to viewport height */
+}
 
 body {
   background-color: #003566;
   color: white;
-  font-family: sans-serif;
-  margin: 0;
+  font-family: sans-serif; /* Choose your preferred font family */
+  margin: 0; /* Remove default margin */
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
-  height: 100%;
-  /* padding-top: 50px; */
 }
 
-main {
-  padding: 20px;
-  max-width: 80%;
-  flex-grow: 1; /* Allows the main content to grow and fill the available space */
-}
-
-
-.body-text-center {
-  text-align: center;
-  max-width: 100%;
-}
-
-.body-text-left {
-  text-align: left;
-  max-width: 80%;
-}
-
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-p {
-  font-size: 1em;
-}
-
-/* --------------- NavBar --------------- */
-
-.nav {
+/* Ensures navbar stays on top of the page */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
   color: white;
-  /* background-color:aqua ; */
-  padding: 20px 20px;
+  padding-top: 20px;
   width: 100%;
-  z-index: 10;
+  margin:  0 auto;
+  z-index: 10; /* Set a higher z-index to ensure it stays on top */
 }
 
 nav ul {
-  list-style: none;
-  margin: 0;
+  list-style: none; /* Remove default bullet points */
+  margin: 0; /* Remove default margin */
   padding: 0;
-  display: flex;
-  justify-content: center;
+  display: flex; /* Use flexbox for horizontal arrangement */
+  justify-content: center; /* Distribute links evenly */
 }
 
 nav li {
-  display: inline-block;
+  display: inline-block; /* Display list items horizontally */
 }
 
 nav a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit; /* Inherit color from parent element (nav) */
+  text-decoration: none; /* Remove underline from links */
   font-weight: bold;
   padding: 30px;
 }
 
+/* Hover effect for black background */
 nav a:hover {
-  color: black; 
+  color: black; /* Maintain white text on black hover */
 }
 
+/* Active link styling for underlining */
 nav li.active a {
   color: black;
 }
 
-/* --------------- Footer --------------- */
-
-.footer {
-  width: 100%;
-  /* background-color:aqua; */
-  text-align: center;
-}
-
-/* --------------- index.html --------------- */
-
-.index-body-container {
+.vertical-body-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: fit-content;
   margin: 0 auto;
 }
 
-
-.image1 {
-  width: 150px;
+.vertical-body-container img {
+  max-width: 100%; /* Allow images to scale down */
+  height: auto;  /* Maintain aspect ratio */
 }
 
-.image2 {
-  width: 130px;
+.image1 {  /* Specific styles for image 1 */
+  width: 150px; /* Set a maximum width for image 1 */
 }
 
-/* --------------- contact.html --------------- */
-/* --------------- privacy-policy.html --------------- */
-/* --------------- terms-and-conditions.html --------------- */
-/* --------------- resources.html --------------- */
+.image2 {  /* Specific styles for image 2 */
+  width: 130px; /* Set a maximum width for image 2 */
+}
 
+.body-text {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  max-width: 100%;
+}
 
+h1 {
+  font-size: 2em; /* Set a larger font size for the heading */
+  font-weight: bold; /* Make the heading bold */
+}
 
+h2 {
+  font-size: 1.5em; /* Set a larger font size for the heading */
+  font-weight: bold; /* Make the heading bold */
+}
+
+p {
+  font-size: 1em; /* Set a slightly larger font size for paragraphs */
+}
+
+footer {
+  position: fixed;
+  bottom: 0; /* Position at the bottom */
+  width: 100%; /* Set full width */
+  padding: 10px;
+  text-align: center;
+  left: 0;
+}
