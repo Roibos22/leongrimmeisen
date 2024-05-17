@@ -222,15 +222,6 @@ footer {
 	margin-bottom: 50px;
 }
 
-/* .vertical-body-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: fit-content;
-	margin: 0 auto;
-} */
-
 .image1 {
 	width: 150px;
 }
@@ -283,25 +274,7 @@ footer {
 
 
 
-.main-container {
-	display: flex; /* Enable flexbox for the container */
-	 /* Stack elements vertically */
-	min-height: 100vh; /* Set minimum height to viewport height */
-}
 
-
-
-.vertical-body-container img {
-	max-width: 100%; /* Allow images to scale down */
-	height: auto;  /* Maintain aspect ratio */
-}
-
-
-
-.body-text {
-	text-align: center;
-	max-width: 100%;
-}
 
 
 
