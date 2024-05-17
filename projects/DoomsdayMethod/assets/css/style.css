@@ -10,7 +10,6 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	display: flex;
 	flex-direction: column;
 }
 
@@ -21,7 +20,7 @@ html {
 
 main {
 	flex: 1 0 auto;  /* Flex-grow, flex-shrink, flex-basis */
-	padding-top: 30px;
+	padding-top: 80px;
 	width: 100%;
 }
 
@@ -76,6 +75,7 @@ nav {
 	margin:  0 auto;
 	z-index: 100;
 	display: flex;
+	justify-content: center;
 	align-items: center;
 }
 
@@ -109,7 +109,7 @@ nav li.active a {
 .hamburger {
 	position: relative;
 	display: block;
-	width: 35px;
+	width: 40px;
 	cursor: pointer;
 	appearance: none;
 	background: none;
@@ -118,18 +118,34 @@ nav li.active a {
 	border: none;
 }
 
+@media (min-width: 768px) {
+	.mobile-nav {
+		display: none;
+	}
+
+	.hamburger {
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.desktop-nav ul {
+		display: none;
+	}
+}
+
 .hamburger .bar, .hamburger:after, .hamburger:before {
 	content: '';
 	display: block;
 	width: 100%;
-	height: 5px;
+	height: 4px;
 	background-color: white;
 	margin: 6px 0px;
 	transition: 0.4s;
 }
 
 .hamburger.is-active:before {
-	transform: rotate(-45deg) translate(-7px, 6px);
+	transform: rotate(-45deg) translate(-5px, 5px);
 }
 
 .hamburger.is-active .bar {
@@ -141,8 +157,7 @@ nav li.active a {
 }
 
 .mobile-nav {
-	display: block;
-	position: fixed;
+	display: none;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -150,21 +165,33 @@ nav li.active a {
 	z-index: 98;
 	padding-top: 120px;
 	justify-content: center;
-	background-color: #066566;
-
-	a {
-		display: block;
-		text-align: center;
-		margin-bottom: 12px 16px;
-		background-color: #009966;
-	}
-
-	ul {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-	}
+	background-color: #003566;
+	transition: 0.4s;
 }
+
+.mobile-nav.is-active {
+	left: 0;
+	display: block;
+	transition: 0.4s;
+}
+
+.mobile-nav a {
+	display: block;
+	width: 100%;
+	max-width: 200px;
+	margin: 0 auto 16px;
+	text-align: center;
+	padding: 12px 16px;
+	background-color: #002866;
+}
+
+.mobile-nav ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.mobile-nav
 
 /* --------------- FOOTER --------------- */
 
