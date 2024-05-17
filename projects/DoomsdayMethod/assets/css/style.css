@@ -14,10 +14,36 @@ body {
 	flex-direction: column;
 }
 
+html {
+    overflow-y: scroll;  /* Always shows the vertical scrollbar */
+	margin-left: 8px;
+}
+
 main {
 	flex: 1 0 auto;  /* Flex-grow, flex-shrink, flex-basis */
 	padding-top: 80px;
 }
+
+
+/* --------------- SCROLL BAR --------------- */
+
+::-webkit-scrollbar-track {
+    background: #003566; /* Light grey track */
+}
+
+/* The draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 10px;
+}
+
+/* The scrollbar itself (including both Track and Thumb) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* --------------- FONTS --------------- */
 
 h1 {
 	font-size: 2em; /* Set a larger font size for the heading */
