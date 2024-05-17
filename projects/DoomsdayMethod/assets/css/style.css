@@ -15,48 +15,49 @@ body {
 }
 
 html {
-    overflow-y: scroll;  /* Always shows the vertical scrollbar */
+	overflow-y: scroll;  /* Always shows the vertical scrollbar */
 	margin-left: 8px;
 }
 
 main {
 	flex: 1 0 auto;  /* Flex-grow, flex-shrink, flex-basis */
-	padding-top: 80px;
+	padding-top: 30px;
+	width: 100%;
 }
 
 
 /* --------------- SCROLL BAR --------------- */
 
 ::-webkit-scrollbar-track {
-    background: #003566; /* Light grey track */
+	background: #003566; /* Light grey track */
 }
 
 /* The draggable part of the scrollbar */
 ::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    border-radius: 10px;
+	background-color: darkgrey;
+	border-radius: 10px;
 }
 
 /* The scrollbar itself (including both Track and Thumb) */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+	width: 8px;
+	height: 8px;
 }
 
 /* --------------- FONTS --------------- */
 
 h1 {
-	font-size: 2em; /* Set a larger font size for the heading */
-	font-weight: bold; /* Make the heading bold */
+	font-size: 2em;
+	font-weight: bold;
 }
 
 h2 {
-	font-size: 1.5em; /* Set a larger font size for the heading */
-	font-weight: bold; /* Make the heading bold */
+	font-size: 1.5em;
+	font-weight: bold;
 }
 
 p {
-	font-size: 1em; /* Set a slightly larger font size for paragraphs */
+	font-size: 1em;
 }
 
 /* --------------- NAVBAR --------------- */
@@ -101,15 +102,6 @@ nav li.active a {
 
 /* --------------- FOOTER --------------- */
 
-/* footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	padding: 10px;
-	text-align: center;
-	left: 0;
-} */
-
 footer {
 	flex-shrink: 0; /* Prevent the footer from shrinking */
 	width: 100%;
@@ -152,16 +144,14 @@ footer {
 
 .contact-container {
 	text-align: center;
-	margin-top: 10px;
-	margin-bottom: 15px;
+	padding: 0% 5% 0% 5%;
 }
 
 /* --------------- PRIVACY-POLICY.HTML --------------- */
 
 .privacy-policy-body {
 	text-align: left;
-	margin-top: 10px;
-	margin-bottom: 15px;
+	padding: 0% 5% 0% 5%;
 }
 
 
@@ -197,7 +187,6 @@ footer {
 
 .body-text {
 	text-align: center;
-
 	max-width: 100%;
 }
 
