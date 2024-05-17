@@ -21,6 +21,7 @@ html {
 main {
 	flex: 1 0 auto;  /* Flex-grow, flex-shrink, flex-basis */
 	padding-top: 80px;
+	padding-bottom: 40px;
 	width: 100%;
 }
 
@@ -66,7 +67,7 @@ a {
 /* --------------- NAVBAR --------------- */
 
 nav {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	color: white;
@@ -109,7 +110,7 @@ nav li.active a {
 .hamburger {
 	position: relative;
 	display: block;
-	width: 40px;
+	width: 50px;
 	cursor: pointer;
 	appearance: none;
 	background: none;
@@ -132,7 +133,12 @@ nav li.active a {
 	.desktop-nav ul {
 		display: none;
 	}
-}
+	.desktop-nav {
+		width: calc(100% - 20px);		
+		display: flex;
+        justify-content: flex-end;
+	}
+} 
 
 .hamburger .bar, .hamburger:after, .hamburger:before {
 	content: '';
@@ -196,10 +202,11 @@ nav li.active a {
 /* --------------- FOOTER --------------- */
 
 footer {
-	flex-shrink: 0; /* Prevent the footer from shrinking */
+	flex-shrink: 0;
 	width: 100%;
 	text-align: center;
-	padding-top: 10px;
+	padding-top: 120px;
+	margin-top: 100px;
 }
 
 /* --------------- INDEX.HTML --------------- */
