@@ -2,7 +2,7 @@
 body {
 	background-color: #331D23;
 	color: white;
-	font-family: sans-serif;
+	font-family: monospace;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -20,7 +20,7 @@ main {
 .grid-container {
 	display: grid;
 	grid-template-columns: 1fr 2.5fr;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: auto;
 	width: 100%;
 	justify-content: center;
 }
@@ -28,31 +28,16 @@ main {
 .box {
 	padding: 10px;
 	margin: 0px 30px 0px 30px;
-	color: black;
 }
 
-.intro-title {
-	background-color: aliceblue;
+.title {
+	text-align: center;
+	/* background-color: gray; */
 }
 
-.tech-title {
-	background-color :antiquewhite;
-}
-
-.projects-title {
-	background-color: aqua;
-}
-
-.intro-content {
-	background-color: aquamarine;
-}
-
-.tech-content {
-	background-color: blanchedalmond;
-}
-
-.projects-content {
-	background-color: bisque;
+.content {
+	/* text-align: center; */
+	/* background-color: gray; */
 }
 
 /* --------------- FOOTER --------------- */
@@ -63,4 +48,33 @@ footer {
 	text-align: center;
 	padding-top: 120px;
 	margin-top: 100px;
+}
+
+/* --------------- FORMAT --------------- */
+
+h1 {
+	font-size: large;
+	margin: 0;
+}
+
+h1 {
+	font-size: 1.5em;
+	font-weight: normal;
+	margin: 0;
+}
+
+br {
+	line-height: 2em;
+}
+
+p {
+	margin: 0;
+}
+
+.circular-image {
+	border-radius: 50%; /* Make the image a circle */
+	border: 2px solid white; /* Add a black outline with desired width */
+	width: 250px; /* Set the desired width of the image */
+	height: 250px; /* Set the desired width of the image */
+	object-fit: cover; /* Ensure entire image area is filled while maintaining aspect ratio */
 }
