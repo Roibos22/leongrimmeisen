@@ -78,3 +78,18 @@ p {
 	height: 250px; /* Set the desired width of the image */
 	object-fit: cover; /* Ensure entire image area is filled while maintaining aspect ratio */
 }
+
+.logo {
+	width: 40px;
+	padding: 5px;
+	padding-bottom: 0;
+	color: white;
+}
+
+.logos-container {
+	padding-top: 10px
+}
+
+.logos-container a {
+	text-decoration: none;
+}
