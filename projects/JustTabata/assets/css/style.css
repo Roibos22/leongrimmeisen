@@ -2,7 +2,7 @@
 /* --------------- GENERAL --------------- */
 
 body {
-	background-color: #bb3e03;
+	background-color: #b00603;
 	color: white;
 	font-family: sans-serif;
 	margin: 0;
@@ -30,7 +30,7 @@ main {
 /* --------------- SCROLL BAR --------------- */
 
 ::-webkit-scrollbar-track {
-	background: #bb3e03; /* Light grey track */
+	background: #b00603;
 }
 
 /* The draggable part of the scrollbar */
@@ -172,7 +172,7 @@ nav li.active a {
 	z-index: 98;
 	padding-top: 120px;
 	justify-content: center;
-	background-color: #bb3e03;
+	background-color: #b00603;
 	transition: 0.4s;
 }
 
@@ -189,7 +189,7 @@ nav li.active a {
 	margin: 0 auto 16px;
 	text-align: center;
 	padding: 12px 16px;
-	background-color: #bb0603;
+	background-color: #890f03;
     border-radius: 20px;
 }
 
