@@ -12,7 +12,26 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<nav class="mobile-nav">
+	<ul>
+		<li><a href="#me">me</a></li>
+		<li><a href="#skills">tech</a></li>
+		<li><a href="#projects">projects</a></li>
+	</ul>
+</nav>
 <body>
+	<header>
+		<nav class="desktop-nav">
+			<ul>
+				<li><a href="#me">me</a></li>
+				<li><a href="#skills">tech</a></li>
+				<li><a href="#projects">projects</a></li>
+			</ul>
+			<button class="hamburger" >
+				<div class="bar"></div>
+			</button>
+		</nav>
+	</header>
 	<main>
 		<div class="grid-container">
 			<div class="box title">
@@ -31,14 +50,12 @@
 				<br>
 				<p>grimmeisen.leon@gmail.com</p>
 			</div>
-			<div class="box content">
+			<div class="box content" id ="me">
 				<h1>My name is <strong>Leon Grimmeisen</strong>, and I am a <strong>Software Engineer</strong>.</h1>
-				<br>
 				<p>When I realized I can just build any app I want and load it onto my phone, my passion for software engineering was born.</p>
-				<br>
 				<p>Since then i have built up my knowledge at the school with the best learning concept in the world, 42 Berlin.</p>
-				<br>
 				<p>I am a life long learner, love creating cool things and solving complex problems.</p>
+				<p><i class="fas fa-map-marker-alt"></i> Berlin, Germany.</p>
 				<div class="random-fact-generator">
 					<button id="factButton" class="fact-button">
 						<i class="fas fa-sync-alt"></i>
@@ -49,7 +66,7 @@
 			<div class="box title">
 				<h1><strong>tech i use</strong></h1>
 			</div>
-			<div class="box content">
+			<div class="box content" id ="skills">
 				<div class="grid-container-skills">
 					<!-- Programming Languages -->
 					<div class="skill-box">
@@ -108,24 +125,28 @@
 			<div class="box title">
 				<h1><strong>selected projects</strong></h1>
 			</div>
-			<div class="box content">
+			<div class="box content" id ="projects">
 				<div class="projects-grid">
-					<div class="project">
-						<h3>Doomsday Method</h3>
-						<img src="assets/img/logos/DoomsdayMethod_logo.png" alt="Project 1">
-					</div>
-					<div class="project">
+					<a href="projects/HealthPulse/index.html" target="_blank" class="project">
 						<h3>HealthPulse</h3>
-						<img src="assets/img/logos/HealthPulse_logo.png" alt="Project 1">
-					</div>
-					<div class="project">
-						<h3>JustTabta</h3>
-						<img src="assets/img/logos/JustTabata_logo_rounded.png" alt="Project 1">
-					</div>
-					<div class="project">
+						<img src="assets/img/logos/HealthPulse_logo.png" class="projects-picture" alt="HearlthPulse project">
+						<img src="assets/img/logos/appstore_logo.png" class="projects-logo-small" alt="GitHub Link">
+					</a>
+					<a href="projects/DoomsdayMethod/index.html" target="_blank" class="project">
+						<h3>Doomsday Method</h3>
+						<img src="assets/img/logos/DoomsdayMethod_logo.png" class="projects-picture" alt="Doomsday Method project">
+						<img src="assets/img/logos/appstore_logo.png" class="projects-logo-small" alt="GitHub Link">
+					</a>
+					<a href="https://github.com/Roibos22/minihell" target="_blank" class="project">
 						<h3>minishell</h3>
-						<img src="assets/img/logos/DoomsdayMethod_logo.png" alt="Project 1">
-					</div>
+						<!-- <img src="assets/img/logos/DoomsdayMethod_logo.png" class="projects-picture" alt="minihsell project"> -->
+						<img src="assets/img/logos/github_logo_white.png" class="projects-logo-small" alt="GitHub Link">
+					</a>
+					<a href="projects/JustTabata/index.html" target="_blank" class="project">
+						<h3>JustTabta</h3>
+						<img src="assets/img/logos/JustTabata_logo_rounded.png" class="projects-picture" alt="JustTabata project">
+						<img src="assets/img/logos/appstore_logo.png" class="projects-logo-small" alt="GitHub Link">
+					</a>
 					<!-- Add more projects as needed -->
 				</div>
 			</div>
