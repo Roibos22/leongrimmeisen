@@ -55,7 +55,7 @@ main {
 
 .box {
 	padding: 10px;
-	margin: 0px 30px 30px 30px;
+	margin: 0px 30px 60px 30px;
 }
 
 .title {
@@ -94,11 +94,11 @@ main {
 .fact-button {
 	padding: 0px;
 	cursor: pointer;
-    font-size: 24px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: white;
+	font-size: 24px;
+	cursor: pointer;
+	background: none;
+	border: none;
+	color: white;
 }
 
 /* --------------- FOOTER --------------- */
@@ -115,6 +115,12 @@ footer {
 h1 {
 	font-size: 1.5em;
 	font-weight: 150;
+	margin: 0;
+}
+
+h4 {
+	font-size: 1.5em;
+	font-weight: 300;
 	margin: 0;
 }
 
@@ -151,6 +157,38 @@ p {
 	text-decoration: none;
 }
 
+
+/* --------------- PROJECTS GRID --------------- */
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	gap: 30px; 
+}
+
+.project {
+	border-radius: 20px; /* Rounded corners */
+	border: 2px solid white;
+	overflow: hidden; /* Ensures no content spills out */
+	text-align: center; /* Centers the text */
+	transition: transform 0.3s; /* Smooth transformation on hover */
+}
+
+.project img {
+	width: 100%; /* Makes the image fill the container */
+	height: 150px; /* Fixed height for images */
+	object-fit: cover; /* Ensures the image covers the area without distorting */
+}
+
+.project h3 {
+	margin: 10px 0; /* Adds vertical spacing but no horizontal spacing */
+}
+
+.project:hover {
+	transform: translateY(-5px); /* Moves the project up slightly on hover */
+	box-shadow: 0 15px 30px rgba(0,0,0,0.5); /* Darker shadow on hover */
+}
 
 /* --------------- SCROLL BAR --------------- */
 
