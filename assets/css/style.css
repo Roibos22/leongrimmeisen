@@ -304,6 +304,15 @@ nav li.active a {
 	}
 } 
 
+@media (max-width: 768px) {
+	.box {
+		padding: 0px;
+		margin: 0px 0px 60px 0px;
+	}
+}
+
+
+
 .hamburger .bar, .hamburger:after, .hamburger:before {
 	content: '';
 	display: block;
