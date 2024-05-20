@@ -151,7 +151,7 @@ p {
 
 .projects-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto;
 	gap: 30px; 
 }
@@ -159,6 +159,7 @@ p {
 .project {
 	border-radius: 20px;
 	border: 2px solid white;
+	background-color: #8b0725;
 	overflow: hidden;
 	text-align: center;
 	transition: transform 0.3s;
@@ -361,7 +362,7 @@ nav li.active a {
 	margin: 0 auto 16px;
 	text-align: center;
 	padding: 12px 16px;
-	background-color: #531D23;
+	background-color: #8b0725;
 	border-radius: 20px;
 }
 
