@@ -67,18 +67,36 @@ a {
 
 /* --------------- NAVBAR --------------- */
 
+header {
+	width: 100%;
+}
+
 nav {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	color: white;
-	padding-top: 20px;
-	width: 100%;
-	margin:  0 auto;
+	padding-top: 30px;
+	width: 90%;
+	margin: 0 auto;
 	z-index: 100;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.logo-link {
+	position: absolute;
+	left: 0;
+}
+
+.circular-image {
+	border-radius: 50%; 
+	background-color: white;
+	border: 2px solid white;
+	width: 50px; 
+	height: 50px;
+	object-fit: cover;
 }
 
 nav ul {
