@@ -14,4 +14,166 @@
 </head>
 <nav class="mobile-nav">
 	<ul>
-		<li><a class="section-button" href="
+		<li><a class="section-button" href="#me">me</a></li>
+		<li><a class="section-button" href="#skills">tech</a></li>
+		<li><a class="section-button" href="#projects">projects</a></li>
+	</ul>
+</nav>
+<body>
+	<header>
+		<nav class="desktop-nav">
+			<ul>
+				<li><a href="#me">me</a></li>
+				<li><a href="#skills">tech</a></li>
+				<li><a href="#projects">projects</a></li>
+			</ul>
+			<button class="hamburger">
+				<div class="bar"></div>
+			</button>
+		</nav>
+	</header>
+	<main>
+		<div class="grid-container">
+			<div class="box title"  id ="me">
+				<img src="assets/img/mugshots/mugshot_fornt_2.jpg" alt="Mugshot of Leon Grimmeisen" class="circular-image">
+				<div class="logos-container">
+					<a href="https://github.com/Roibos22" target="blank">
+						<img src="assets/img/logos/github_logo_white.png" alt="GitHub Link" class="logo">
+					</a>
+					<a href="https://apps.apple.com/at/developer/leon-grimmeisen/id1654025400" target="blank">
+						<img src="assets/img/logos/appstore_logo_white.png" alt="GitHub Link" class="logo">
+					</a>
+					<a href="https://www.linkedin.com/in/leon-grimmeisen-44aa93193/" target="_blank">
+						<img src="assets/img/logos/linkedin_logo_white.png" alt="GitHub Link" class="logo">
+					</a>
+				</div>
+				<p>grimmeisen.leon@gmail.com</p>
+				<p><i class="fas fa-map-marker-alt"></i> Berlin, Germany</p>
+			</div>
+			<div class="box content">
+				<h1>My name is <strong>Leon Grimmeisen</strong>, and I am a <strong>Software Engineer</strong>.</h1>
+				<p>When I realized that I could build any app I wanted and load it onto my phone, my passion for software engineering was ignited.</p>
+				<p>Since that moment, I have been passionately learning about software development and working on projects that solve problems in my daily life.</p>
+				<p>Currently, I am deepening my software engineering skills at the school with the best learning concept in the world, 42 Berlin.</p>
+				<p>I am a lifelong learner who loves creating cool things and solving complex problems.</p>
+				<div class="random-fact-generator">
+					<button id="factButton" class="fact-button">
+						<i class="fas fa-sync-alt"></i>
+					</button>
+					<div id="factDisplay" class="fact-display"></div>
+				</div>
+			</div>
+			<div class="box title" id ="skills">
+				<h1><strong>tech i use</strong></h1>
+			</div>
+			<div class="box content">
+				<div class="grid-container-skills">
+					<!-- Programming Languages -->
+					<div class="skill-box">
+						<img src="assets/img/logos/C_logo.png" alt="C Logo" class="skills-logo">
+						<p>C</p>
+					</div>
+					<div class="skill-box">
+						<img src="assets/img/logos/C++_logo.png" alt="C++ Logo" class="skills-logo">
+						<p>C++</p>
+					</div>
+					<div class="skill-box">
+						<img src="assets/img/logos/swift_logo.png" alt="Swift Logo" class="skills-logo">
+						<p>Swift</p>
+					</div>
+					<div class="skill-box">
+						<img src="assets/img/logos/swift_logo.png" alt="SwiftUI Logo" class="skills-logo">
+						<p>SwiftUI</p>
+					</div>
+					<div class="skill-box">
+						<img src="assets/img/logos/python_logo.png" alt="Python Logo" class="skills-logo">
+						<p>Python</p>
+					</div>
+					<!-- Web Development Technologies -->
+					<div class="skill-box">
+						<img src="assets/img/logos/HTML_logo.png" alt="HTML Logo" class="skills-logo">
+						<p>HTML</p>
+					</div>
+					<div class="skill-box">
+						<img src="assets/img/logos/CSS_logo.png" alt="CSS Logo" class="skills-logo">
+						<p>CSS</p>
+					</div>
+					<div class="skill-box">
+						<img src="assets/img/logos/JS_logo.png" alt="JavaScript Logo" class="skills-logo">
+						<p>JavaScript</p>
+					</div>
+					<!-- Scripting and Automation -->
+					<div class="skill-box">
+						<img src="assets/img/logos/bash_logo.png" alt="Bash Logo" class="skills-logo">
+						<p>Bash</p>
+					</div>
+					<!-- Development Tooling and Environments -->
+					<div class="skill-box">
+						<img src="assets/img/logos/linux_logo.png" alt="Linux Logo" class="skills-logo">
+						<p>Linux</p>
+					</div>
+					<div class="skill-box">
+						<img src="assets/img/logos/git_logo.png" alt="Git Logo" class="skills-logo">
+						<p>git</p>
+					</div>
+					<div class="skill-box">
+						<img src="assets/img/logos/docker_logo.png" alt="Docker Logo" class="skills-logo">
+						<p>Docker</p>
+					</div>
+				</div>
+			</div>
+			<div class="box title"  id ="projects">
+				<h1><strong>selected projects</strong></h1>
+			</div>
+			<div class="box content">
+				<div class="projects-grid">
+					<a href="projects/HealthPulse/index.html" target="_blank" class="project">
+						<h3>HealthPulse</h3>
+						<div class="project-box-content">
+							<img src="assets/img/AppStoreIcons/health-pulse_icon.png" class="projects-picture" alt="HealthPulse project">
+							<p>Health Pulse is an iOS App whichs main purpose is to track fitness goals and visualize them with widgets</p>
+						</div>
+						<div class="logo-container">
+							<img src="assets/img/logos/appstore_logo.png" class="projects-logo-small" alt="App Store Logo">
+						</div>
+					</a>
+					<a href="projects/DoomsdayMethod/index.html" target="_blank" class="project">
+						<h3>Doomsday Method</h3>
+						<div class="project-box-content">
+							<img src="assets/img/AppStoreIcons/doomsday-method_icon.png" class="projects-picture" alt="Doomsday Method project">
+							<p>An iOS App that teaches you how to apply the DoomsdayMethod and calculate the weekday of any date in seconds</p>
+						</div>
+						<div class="logo-container">
+							<img src="assets/img/logos/appstore_logo.png" class="projects-logo-small" alt="App Store Logo">
+						</div>
+					</a>
+					<a href="projects/DoomsdayMethod/index.html" target="_blank" class="project">
+						<h3>minishell</h3>
+						<div class="project-box-content">
+							<img src="assets/img/logos/42_berlin_logo.png" class="projects-picture" alt="HealthPulse project">
+							<p>A command-line interpreter simulating a shell environment, built as a project at 42</p>
+						</div>
+						<div class="logo-container">
+							<img src="assets/img/logos/appstore_logo.png" class="projects-logo-small" alt="App Store Logo">
+						</div>
+					</a>
+					<a href="projects/JustTabata/index.html" target="_blank" class="project">
+						<h3>JustTabta</h3>
+						<div class="project-box-content">
+							<img src="assets/img/AppStoreIcons/justtabata_icon.png" class="projects-picture" alt="HealthPulse project">
+							<p>JustTabata is a workout timer that lets you create custom workouts and exercises</p>
+						</div>
+						<div class="logo-container">
+							<img src="assets/img/logos/appstore_logo.png" class="projects-logo-small" alt="App Store Logo">
+						</div>
+					</a>
+					<!-- Add more projects as needed -->
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p>&copy; 2024 Leon Grimmeisen</p>
+	</footer>
+</body>
+</html>
