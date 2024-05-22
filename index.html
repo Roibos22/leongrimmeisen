@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script src="assets/js/main.js"> </script>
+	<script src="assets/js/main.js">
+		if ('scrollRestoration' in history) {
+			history.scrollRestoration = 'manual';
+		}
+		window.scrollTo(0, 0);
+	</script>
+	<script> </script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>hi welt</title>
