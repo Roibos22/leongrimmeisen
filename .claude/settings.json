@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); print\\(data[0][''text'']\\)\")",
+      "Bash(python3 -c \"import sys; content=sys.stdin.read\\(\\); start=content.find\\(''text''\\)+8; print\\(content[start:start+40000]\\)\")",
+      "Bash(git -C /Users/Roibos/Desktop/leongrimmeisen remote -v)"
+    ]
+  }
+}

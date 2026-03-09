@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leben in Deutschland – Die Einbürgerungstest-App</title>
+  <meta name="description" content="Alle 460 offiziellen Fragen. Alle 16 Bundesländer. 20 Sprachen. Bestehe den Einbürgerungstest mit Sicherheit.">
+
+  <link rel="icon" type="image/x-icon" href="../../assets/facivons/the_horns.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- JS (deferred so GSAP is available first) -->
+  <script src="assets/js/main.js" defer></script>
+</head>
+
+<!-- Mobile nav (outside body — exact Tick/Busfahrer pattern) -->
+<nav class="mobile-nav">
+  <ul>
+    <li class="active"><a href="/projects/LebenInDeutschland/index.html">Start</a></li>
+    <li><a href="/projects/LebenInDeutschland/privacy-policy.html">Datenschutz</a></li>
+    <li><a href="/projects/LebenInDeutschland/agb.html">AGB</a></li>
+    <li><a href="/projects/LebenInDeutschland/contact.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header>
+    <nav class="desktop-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../assets/img/mugshots/mugshot_fornt_2.jpg" alt="Leon Grimmeisen" class="circular-image">
+      </a>
+      <ul>
+        <li class="active"><a href="/projects/LebenInDeutschland/index.html">Start</a></li>
+        <li><a href="/projects/LebenInDeutschland/privacy-policy.html">Datenschutz</a></li>
+        <li><a href="/projects/LebenInDeutschland/agb.html">AGB</a></li>
+        <li><a href="/projects/LebenInDeutschland/contact.html">Kontakt</a></li>
+      </ul>
+      <button class="hamburger">
+        <div class="bar"></div>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <img
+          src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1600&q=80"
+          alt=""
+          class="hero__bg-img"
+          aria-hidden="true"
+          fetchpriority="high"
+          srcset="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=75 800w,
+                  https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1600&q=80 1600w"
+          sizes="100vw"
+        >
+        <div class="hero__bg-overlay"></div>
+      </div>
+
+      <div class="hero__content">
+        <img src="../../assets/img/logos/lid_logo.png" alt="Leben in Deutschland" class="hero__app-logo">
+        <p class="hero__eyebrow">Einbürgerungstest — iOS App</p>
+
+        <h1 class="hero__title">
+          <span class="hero__title-line hero__title-sans">Citizenship is the</span>
+          <span class="hero__title-line hero__title-serif">Destination.</span>
+        </h1>
+
+        <p class="hero__sub">
+          All 460 official questions. Every Bundesland. 20 languages. One app.
+        </p>
+
+        <div class="hero__cta-group">
+          <a href="#" class="cta-button cta-button--primary js-magnetic">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Download Free on the App Store
+          </a>
+          <p class="hero__note">// One-time €4.99 unlock. No subscription.</p>
+        </div>
+      </div>
+
+      <div class="hero__scroll-cue" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: FEATURES ===== -->
+    <section class="features" id="features">
+      <div class="container">
+        <span class="section-eyebrow">Was dich erwartet</span>
+        <h2 class="section-title">Drei Gründe, warum es klappt.</h2>
+
+        <div class="features-grid">
+
+          <!-- Card 1: Question Bank / Bundesland Cycler -->
+          <div class="feature-card">
+            <span class="feature-card__tag">01</span>
+            <h3 class="feature-card__title">Every question. Every state.</h3>
+            <p class="feature-card__desc">All 460 official questions, including region-specific sets for all 16 German Bundesländer. Nothing missing.</p>
+            <div class="feature-card__demo">
+              <div class="bundesland-label">
+                <span class="bundesland-flag" id="bundesland-flag">🦁</span>
+                <span class="bundesland-name" id="bundesland-name">Bayern</span>
+              </div>
+              <p class="question-text" id="question-text">Welches Wappen zeigt den Freistaat Bayern?</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Language Typewriter -->
+          <div class="feature-card">
+            <span class="feature-card__tag">02</span>
+            <h3 class="feature-card__title">Study in your language.</h3>
+            <p class="feature-card__desc">20 native language translations including Arabic, Turkish, Russian, Ukrainian, Persian, Polish, and more.</p>
+            <div class="feature-card__demo">
+              <p class="language-prompt">// Language Engine — Active</p>
+              <p class="language-output">
+                <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+              </p>
+              <p class="language-translation" id="language-translation">— auf Türkisch</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Readiness Score / Study Grid -->
+          <div class="feature-card">
+            <span class="feature-card__tag">03</span>
+            <h3 class="feature-card__title">Know your real odds.</h3>
+            <p class="feature-card__desc">The Readiness Score calculates your true statistical probability of passing before you walk into the exam room.</p>
+            <div class="feature-card__demo">
+              <div class="study-grid" id="study-grid"></div>
+              <div class="score-display">
+                <span class="score-value" id="score-value">0</span>
+                <span class="score-label">% ready</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DISCLAIMER BANNER ===== -->
+    <div class="disclaimer-banner">
+      <p>
+        <strong>Hinweis:</strong> Diese App ist ein unabhängiges Lernprodukt und steht in keiner Verbindung mit dem Bundesamt für Migration und Flüchtlinge (BAMF), dem Bundesdruckerei oder offiziellen Einbürgerungstestzentren. Die offiziellen Prüfungsfragen wurden aus den vom BAMF veröffentlichten Materialien entnommen.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="site-footer__brand-name">Leben in Deutschland</span>
+        <span class="site-footer__tagline">Prepare. Study. Pass.</span>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="/projects/LebenInDeutschland/index.html">Start</a>
+        <a href="/projects/LebenInDeutschland/privacy-policy.html">Datenschutz</a>
+        <a href="/projects/LebenInDeutschland/agb.html">AGB</a>
+        <a href="/projects/LebenInDeutschland/imprint.html">Impressum</a>
+        <a href="/projects/LebenInDeutschland/contact.html">Kontakt</a>
+      </nav>
+
+      <div class="site-footer__status">
+        <span class="site-footer__status-dot"></span>
+        App Store — Live
+      </div>
+    </div>
+
+    <p class="site-footer__copy">© 2026 Leon Grimmeisen. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
