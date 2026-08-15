@@ -1,41 +1,58 @@
+/* ===================================================================
+   Doomsday — leongrimmeisen.de/projects/DoomsdayMethod
+
+   Palette is the app's own asset catalog (Doomsday/Assets.xcassets/
+   Colors), so the site and the app agree: warm paper, ink, one blue
+   accent, and the bomb orange used once. The app is light-only by
+   design, so there is no dark variant here either.
+   =================================================================== */
+
+:root {
+	--paper:     #F6F2E9;  /* Primary   — page background            */
+	--surface:   #FFFFFF;  /* Secondary — cards                      */
+	--ink:       #17150F;  /* Opposite  — body text                  */
+	--ink-soft:  #6B665C;  /* muted ink for secondary copy           */
+	--accent:    #0A81FF;  /* Accent    — links, CTA                 */
+	--accent-dk: #0067CC;  /* CTA hover                              */
+	--bomb:      #FF9500;  /* Doomsday  — one highlight, used sparingly */
+	--border:    #E2DBCC;
+	--radius:    15px;     /* matches the app's RoundedRectangle     */
+}
 
 /* --------------- GENERAL --------------- */
 
 body {
-	background-color: #003566;
-	color: white;
-	font-family: sans-serif;
+	background-color: var(--paper);
+	color: var(--ink);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
 	flex-direction: column;
+	-webkit-font-smoothing: antialiased;
 }
 
 html {
 	overflow-y: scroll;
-	margin-left: 12px;
-	margin-right: 4px;
 }
 
 main {
 	flex: 1 0 auto;  /* Flex-grow, flex-shrink, flex-basis */
-	padding-top: 80px;
 	padding-bottom: 40px;
 	width: 100%;
 }
 
-
 /* --------------- SCROLL BAR --------------- */
 
 ::-webkit-scrollbar-track {
-	background: #003566; /* Light grey track */
+	background: var(--paper);
 }
 
 /* The draggable part of the scrollbar */
 ::-webkit-scrollbar-thumb {
-	background-color: darkgrey;
+	background-color: #CFC7B6;
 	border-radius: 10px;
 }
 
@@ -50,19 +67,22 @@ main {
 h1 {
 	font-size: 2em;
 	font-weight: bold;
+	letter-spacing: -0.02em;
 }
 
 h2 {
 	font-size: 1.5em;
 	font-weight: bold;
+	letter-spacing: -0.01em;
 }
 
 p {
 	font-size: 1em;
+	line-height: 1.65;
 }
 
 a {
-	color: #FFFFFF;
+	color: var(--accent);
 }
 
 /* --------------- NAVBAR --------------- */
@@ -75,7 +95,7 @@ nav {
 	position: relative;
 	top: 0;
 	left: 0;
-	color: white;
+	color: var(--ink);
 	padding-top: 30px;
 	width: 90%;
 	margin: 0 auto;
@@ -91,10 +111,10 @@ nav {
 }
 
 .circular-image {
-	border-radius: 50%; 
-	background-color: white;
-	border: 2px solid white;
-	width: 50px; 
+	border-radius: 50%;
+	background-color: var(--surface);
+	border: 2px solid var(--surface);
+	width: 50px;
 	height: 50px;
 	object-fit: cover;
 }
@@ -120,11 +140,11 @@ nav a {
 }
 
 nav a:hover {
-	color: black;
+	color: var(--accent);
 }
 
 nav li.active a {
-	color: black;
+	color: var(--accent);
 }
 
 .hamburger {
@@ -154,18 +174,18 @@ nav li.active a {
 		display: none;
 	}
 	.desktop-nav {
-		width: calc(100% - 20px);		
+		width: calc(100% - 20px);
 		display: flex;
-        justify-content: flex-end;
+		justify-content: flex-end;
 	}
-} 
+}
 
 .hamburger .bar, .hamburger:after, .hamburger:before {
 	content: '';
 	display: block;
 	width: 100%;
 	height: 4px;
-	background-color: white;
+	background-color: var(--ink);
 	margin: 6px 0px;
 	transition: 0.4s;
 }
@@ -191,7 +211,7 @@ nav li.active a {
 	z-index: 98;
 	padding-top: 120px;
 	justify-content: center;
-	background-color: #003566;
+	background-color: var(--paper);
 	transition: 0.4s;
 }
 
@@ -204,20 +224,30 @@ nav li.active a {
 .mobile-nav a {
 	display: block;
 	width: 100%;
-	max-width: 200px;
+	max-width: 220px;
 	margin: 0 auto 16px;
 	text-align: center;
-	padding: 12px 16px;
-	background-color: #002866;
+	padding: 14px 16px;
+	color: var(--ink);
+	text-decoration: none;
+	font-weight: 600;
+	background-color: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+}
+
+.mobile-nav li.active a {
+	color: var(--accent);
+	border-color: var(--accent);
 }
 
 .mobile-nav ul {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	list-style: none;
+	padding: 0;
 }
-
-.mobile-nav
 
 /* --------------- FOOTER --------------- */
 
@@ -225,76 +255,353 @@ footer {
 	flex-shrink: 0;
 	width: 100%;
 	text-align: center;
-	padding-top: 120px;
-	margin-top: 100px;
+	padding: 40px 24px;
+	margin-top: 80px;
+	border-top: 1px solid var(--border);
+	box-sizing: border-box;
 }
 
-/* --------------- INDEX.HTML --------------- */
+.footer-links {
+	display: flex;
+	justify-content: center;
+	gap: 32px;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
+}
 
-.home-container {
+.footer-links a {
+	color: var(--ink-soft);
+	text-decoration: none;
+	font-size: 0.875rem;
+	transition: color 0.2s;
+}
+
+.footer-links a:hover {
+	color: var(--accent);
+}
+
+.copyright {
+	font-size: 0.8rem;
+	color: var(--ink-soft);
+	margin: 0;
+}
+
+/* --------------- INDEX.HTML — HERO --------------- */
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
-	padding: 0% 5% 0% 5%;
+	padding: 60px 24px 80px;
 }
 
-.home-container-body {
+.hero-logo {
+	width: 120px;
+	height: 120px;
+	border-radius: 28px;
+	margin-bottom: 32px;
+	object-fit: contain;
+}
+
+.hero h1 {
+	font-size: clamp(2.2rem, 6vw, 3.4rem);
+	margin-bottom: 16px;
+	max-width: 640px;
+}
+
+/* The one place the bomb orange appears. */
+.hero h1 em {
+	font-style: normal;
+	color: var(--bomb);
+}
+
+.tagline {
+	font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+	color: var(--ink-soft);
+	margin-bottom: 36px;
+	max-width: 540px;
+}
+
+.store-badge {
+	display: inline-block;
+	transition: transform 0.2s;
+}
+
+.store-badge:hover {
+	transform: translateY(-2px);
+}
+
+.store-badge img {
+	width: 160px;
+}
+
+/* The worked example under the hero: the pitch is that this is doable,
+   so the page shows the actual arithmetic rather than describing it. */
+.worked-example {
+	margin: 40px auto 0;
+	max-width: 420px;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 24px 28px;
+	text-align: left;
+	font-size: 0.95rem;
+	line-height: 1.9;
+}
+
+.worked-example .date {
+	font-weight: 700;
+	font-size: 1.1rem;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.worked-example .step {
+	color: var(--ink-soft);
+	display: block;
+}
+
+.worked-example .answer {
+	display: block;
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid var(--border);
+	font-weight: 700;
+	color: var(--accent);
+}
+
+/* --------------- INDEX.HTML — SECTIONS --------------- */
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.section-title {
 	text-align: center;
-	margin-top: 10px;
-	margin-bottom: 50px;
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+	margin-bottom: 32px;
 }
 
-.image1 {
-	width: 150px;
+.features {
+	padding: 80px 24px;
+	background: rgba(23, 21, 15, 0.03);
 }
 
-.image2 {
-	width: 130px;
+.features-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 20px;
+}
+
+.feature-card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 24px;
+}
+
+.feature-card-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 8px;
+}
+
+.feature-icon {
+	font-size: 28px;
+	line-height: 1;
+}
+
+.feature-card h3 {
+	font-size: 1.15rem;
+	margin: 0;
+	letter-spacing: -0.01em;
+}
+
+.feature-card p {
+	color: var(--ink-soft);
+	font-size: 0.95rem;
+	margin: 0;
+}
+
+/* --------------- INDEX.HTML — FREE VS PRO --------------- */
+
+.pricing {
+	padding: 80px 24px;
+}
+
+.pricing-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 20px;
+}
+
+.pricing-card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 28px;
+}
+
+/* The paid card carries the app's 2pt accent stroke, the same way the
+   app marks the one thing on a screen you are meant to act on. */
+.pricing-card.is-pro {
+	border: 2px solid var(--accent);
+}
+
+.pricing-card h3 {
+	margin: 0 0 4px;
+	font-size: 1.3rem;
+}
+
+.pricing-card .price-note {
+	color: var(--ink-soft);
+	font-size: 0.9rem;
+	margin: 0 0 20px;
+}
+
+.pricing-card ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.pricing-card li {
+	padding-left: 26px;
+	position: relative;
+	margin-bottom: 10px;
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.pricing-card li:before {
+	content: '✓';
+	position: absolute;
+	left: 0;
+	color: var(--accent);
+	font-weight: 700;
+}
+
+.pricing-note {
+	text-align: center;
+	color: var(--ink-soft);
+	font-size: 0.9rem;
+	margin-top: 24px;
+}
+
+/* --------------- INDEX.HTML — PRIVACY --------------- */
+
+.privacy-section {
+	padding: 80px 24px;
+	background: rgba(23, 21, 15, 0.03);
+}
+
+.privacy-section h2 {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 32px;
+}
+
+.privacy-checklist {
+	list-style: none;
+	padding: 28px;
+	margin: 0;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	max-width: 560px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.privacy-checklist .check-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 14px;
+	font-size: 0.98rem;
+	line-height: 1.5;
+}
+
+.privacy-checklist .check-item:last-child {
+	margin-bottom: 0;
+}
+
+.privacy-checklist .check {
+	color: var(--accent);
+	font-weight: 700;
+	flex-shrink: 0;
+}
+
+/* --------------- RESPONSIVE --------------- */
+
+@media (max-width: 600px) {
+	.hero {
+		padding: 40px 20px 60px;
+	}
+
+	.features, .pricing, .privacy-section {
+		padding: 60px 20px;
+	}
+
+	.worked-example {
+		padding: 20px;
+	}
 }
 
 /* --------------- CONTACT.HTML --------------- */
 
+/* The nav is in normal flow, so pages without a hero need their own
+   breathing room under it. */
 .contact-container {
 	text-align: center;
-	padding: 0% 5% 0% 5%;
+	padding: 40px 5% 0;
 }
 
-/* --------------- PRIVACY-POLICY.HTML --------------- */
+/* --------------- PRIVACY-POLICY.HTML / TERMS-AND-CONDITIONS.HTML --------------- */
 
-.privacy-policy-body {
-	text-align: left;
-	padding: 0% 5% 0% 5%;
-}
-
-/* --------------- TERMS-AND-CONDITIONS.HTML --------------- */
-
+.privacy-policy-body,
 .terms-and-conditions-body {
 	text-align: left;
-	padding: 0% 5% 0% 5%;
+	padding: 0 24px;
+	max-width: 800px;
+	margin: 0 auto;
 }
 
-/* --------------- RESOURCES.HTML --------------- */
-
-.resources-body {
-	text-align: center;
-	padding: 0% 5% 0% 5%;
+.privacy-policy-body h1,
+.terms-and-conditions-body h1 {
+	font-size: 1.9rem;
+	margin-top: 40px;
 }
 
+.privacy-policy-body h2,
+.terms-and-conditions-body h2 {
+	font-size: 1.25rem;
+	margin-top: 32px;
+	margin-bottom: 8px;
+}
 
+.privacy-policy-body ul,
+.terms-and-conditions-body ul {
+	line-height: 1.7;
+}
 
+.privacy-policy-body li,
+.terms-and-conditions-body li {
+	margin-bottom: 10px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.privacy-policy-body code,
+.terms-and-conditions-body code {
+	background: rgba(23, 21, 15, 0.06);
+	padding: 2px 6px;
+	border-radius: 5px;
+	font-size: 0.9em;
+}
