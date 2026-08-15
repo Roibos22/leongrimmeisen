@@ -431,76 +431,20 @@ footer {
 	margin: 0;
 }
 
-/* --------------- INDEX.HTML — FREE VS PRO --------------- */
-
-.pricing {
-	padding: 80px 24px;
-}
-
-.pricing-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	gap: 20px;
-}
-
-.pricing-card {
-	background: var(--surface);
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	padding: 28px;
-}
-
-/* The paid card carries the app's 2pt accent stroke, the same way the
-   app marks the one thing on a screen you are meant to act on. */
-.pricing-card.is-pro {
-	border: 2px solid var(--accent);
-}
-
-.pricing-card h3 {
-	margin: 0 0 4px;
-	font-size: 1.3rem;
-}
-
-.pricing-card .price-note {
-	color: var(--ink-soft);
-	font-size: 0.9rem;
-	margin: 0 0 20px;
-}
-
-.pricing-card ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.pricing-card li {
-	padding-left: 26px;
-	position: relative;
-	margin-bottom: 10px;
-	font-size: 0.95rem;
-	line-height: 1.5;
-}
-
-.pricing-card li:before {
-	content: '✓';
-	position: absolute;
-	left: 0;
-	color: var(--accent);
-	font-weight: 700;
-}
-
-.pricing-note {
-	text-align: center;
-	color: var(--ink-soft);
-	font-size: 0.9rem;
-	margin-top: 24px;
+/* Three cards, so hold three columns rather than letting auto-fit drop
+   to two and leave one stranded on its own row. */
+@media (min-width: 760px) {
+	.features-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 /* --------------- INDEX.HTML — PRIVACY --------------- */
 
+/* No tint: this now sits directly under the features band, and two
+   shaded sections in a row read as one long block. */
 .privacy-section {
 	padding: 80px 24px;
-	background: rgba(23, 21, 15, 0.03);
 }
 
 .privacy-section h2 {
@@ -547,7 +491,7 @@ footer {
 		padding: 40px 20px 60px;
 	}
 
-	.features, .pricing, .privacy-section {
+	.features, .privacy-section {
 		padding: 60px 20px;
 	}
 
