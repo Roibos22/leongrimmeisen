@@ -1,33 +1,57 @@
-window.onload = function() {
-	if (window.location.pathname.endsWith('/index.html')) {
-	  window.history.replaceState({}, document.title, window.location.pathname.slice(0, -11));
-	}
-};
+/* ===================================================================
+   leongrimmeisen.de — main page
 
-window.onload = function () {
-	const menu_btn = document.querySelector('.hamburger')
-	const mobile_menu = document.querySelector('.mobile-nav')
-	const section_btn = document.querySelectorAll('.section-button')
+   One DOMContentLoaded handler per concern. (There used to be two
+   `window.onload = …` assignments here; the second overwrote the
+   first, so the URL cleanup never ran.)
+   =================================================================== */
 
-	menu_btn.addEventListener('click', function () {
-		menu_btn.classList.toggle('is-active');
-		mobile_menu.classList.toggle('is-active');
-	})
-
-	section_btn.forEach(button => {
-		button.addEventListener('click', function () {
-			menu_btn.classList.toggle('is-active');
-			mobile_menu.classList.toggle('is-active');
-		});
-	});
+if ('scrollRestoration' in history) {
+	history.scrollRestoration = 'manual';
 }
 
-// RANDOM FACT GENERATOR
+/* --------------- TRIM /index.html FROM THE URL --------------- */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+	if (window.location.pathname.endsWith('/index.html')) {
+		const clean = window.location.pathname.slice(0, -'index.html'.length);
+		window.history.replaceState({}, document.title, clean);
+	}
+});
+
+/* --------------- MOBILE NAV --------------- */
+
+document.addEventListener('DOMContentLoaded', function () {
+	const menuBtn = document.querySelector('.hamburger');
+	const mobileMenu = document.querySelector('.mobile-nav');
+	if (!menuBtn || !mobileMenu) return;
+
+	function toggleMenu(open) {
+		const next = open !== undefined ? open : !menuBtn.classList.contains('is-active');
+		menuBtn.classList.toggle('is-active', next);
+		mobileMenu.classList.toggle('is-active', next);
+		menuBtn.setAttribute('aria-expanded', String(next));
+		document.body.style.overflow = next ? 'hidden' : '';
+	}
+
+	menuBtn.setAttribute('aria-expanded', 'false');
+	menuBtn.setAttribute('aria-label', 'Toggle navigation menu');
+	menuBtn.addEventListener('click', () => toggleMenu());
+
+	// Close when a section link is tapped, and when Escape is pressed.
+	mobileMenu.querySelectorAll('a').forEach(link => {
+		link.addEventListener('click', () => toggleMenu(false));
+	});
+	document.addEventListener('keydown', e => {
+		if (e.key === 'Escape' && menuBtn.classList.contains('is-active')) toggleMenu(false);
+	});
+});
+
+/* --------------- RANDOM FACT GENERATOR --------------- */
+
+document.addEventListener('DOMContentLoaded', function () {
 	const facts = [
 		"My favorite sports team is VfB Stuttgart ⚪🔴",
-		// "I love dancing to techno music 🎶",
 		"My favorite book is ‘The subtle art of not giving a fuck’ by Mark Manson 📖",
 		"I love cooking pizza in my stone oven 🍕",
 		"I have 3 older brothers from whom I learned a lot 👨‍👨‍👦‍👦",
@@ -38,84 +62,111 @@ document.addEventListener('DOMContentLoaded', function() {
 		"I ran my first Marathon in 4:20:23 (to be beaten) 🏃‍♂️"
 	];
 
-	let currentIndex = 0;
-	shuffleFacts(facts); // Initial shuffle of the facts
-
 	const factDisplay = document.getElementById('factDisplay');
 	const factButton = document.getElementById('factButton');
+	if (!factDisplay || !factButton) return;
 
-	// Set initial text
+	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	let currentIndex = 0;
+	let typingInterval = null;
+
+	shuffle(facts);
 	factDisplay.textContent = 'Press the button to generate random facts about me!';
 
-	factButton.addEventListener('click', function() {
-		factButton.disabled = true;
+	factButton.addEventListener('click', function () {
 		if (currentIndex >= facts.length) {
-			shuffleFacts(facts); // Reshuffle the facts after all have been shown
+			shuffle(facts);
 			currentIndex = 0;
 		}
 		displayFact(facts[currentIndex++]);
 	});
 
 	function displayFact(fact) {
-		let i = 0;
-		factDisplay.textContent = ''; // Clear previous fact.
+		clearInterval(typingInterval);
+		factDisplay.textContent = '';
 
-		const typingInterval = setInterval(function() {
-			if (i < fact.length) {
-				factDisplay.textContent += fact[i];
-				i++;
+		// Respect reduced-motion: show the whole line at once.
+		if (reduceMotion) {
+			factDisplay.textContent = fact;
+			return;
+		}
+
+		factButton.disabled = true;
+		const chars = Array.from(fact); // split by code point, not UTF-16 unit
+		let i = 0;
+		typingInterval = setInterval(function () {
+			if (i < chars.length) {
+				factDisplay.textContent += chars[i++];
 			} else {
 				clearInterval(typingInterval);
 				factButton.disabled = false;
 			}
-		}, 20); // Adjust typing speed by changing the interval time.
+		}, 20);
 	}
 
-	function shuffleFacts(array) {
+	function shuffle(array) {
 		for (let i = array.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]]; // Swap elements
+			[array[i], array[j]] = [array[j], array[i]];
 		}
 	}
 });
 
-// NAV BAR SCROLLING
+/* --------------- SCROLL REVEAL --------------- */
 
-document.addEventListener("DOMContentLoaded", function() {
-	// Select all anchor tags inside the .desktop-nav element
-	document.querySelectorAll('.desktop-nav a').forEach(anchor => {
-		anchor.addEventListener('click', function (e) {
-			e.preventDefault(); // Prevent default anchor click behavior
-			const targetId = this.getAttribute("href");
-			const targetElement = document.querySelector(targetId);
-			if (targetElement) {
-				smoothScrollTo(targetElement.offsetTop, 300); // Scroll over 600 milliseconds
-			}
-		});
-	});
-	
-	function smoothScrollTo(target, duration) {
-		const start = window.scrollY;
-		const change = target - start;
-		let currentTime = 0;
-		const increment = 20;
+document.addEventListener('DOMContentLoaded', function () {
+	const targets = document.querySelectorAll('[data-reveal]');
+	if (!targets.length) return;
 
-		function animateScroll() {
-			currentTime += increment;
-			const val = Math.easeInOutQuad(currentTime, start, change, duration);
-			window.scrollTo(0, val);
-			if (currentTime < duration) {
-				setTimeout(animateScroll, increment);
-			}
-		}
-		animateScroll();
+	// No IntersectionObserver, or the user asked for less motion: show everything.
+	if (!('IntersectionObserver' in window) ||
+		window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		targets.forEach(el => el.classList.add('is-visible'));
+		return;
 	}
 
-	// Easing function - this can be customized
-	Math.easeInOutQuad = function (t, b, c, d) {
-		t /= d / 2;
-		if (t < 1) return c / 2 * t * t + b;
-		t--;
-		return -c / 2 * (t * (t - 2) - 1) + b;
-	};
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('is-visible');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+	targets.forEach(el => observer.observe(el));
+});
+
+/* --------------- NAV: SMOOTH SCROLL + ACTIVE SECTION --------------- */
+
+document.addEventListener('DOMContentLoaded', function () {
+	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			const target = document.querySelector(this.getAttribute('href'));
+			if (!target) return;
+			e.preventDefault();
+			target.scrollIntoView({
+				behavior: reduceMotion ? 'auto' : 'smooth',
+				block: 'start'
+			});
+		});
+	});
+
+	// Highlight the nav entry for whichever section is currently in view.
+	const sections = document.querySelectorAll('main section[id]');
+	const navLinks = document.querySelectorAll('.desktop-nav a[href^="#"]');
+	if (!sections.length || !navLinks.length || !('IntersectionObserver' in window)) return;
+
+	const spy = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (!entry.isIntersecting) return;
+			navLinks.forEach(link => {
+				link.classList.toggle('is-active', link.getAttribute('href') === '#' + entry.target.id);
+			});
+		});
+	}, { rootMargin: '-45% 0px -50% 0px' });
+
+	sections.forEach(section => spy.observe(section));
 });

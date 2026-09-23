@@ -1,0 +1,67 @@
+/* ===================================================================
+   leongrimmeisen.de — design tokens
+
+   The palette is the one the site has always used: #331D23 maroon and
+   #8b0725 crimson. The change is in how they are applied. Crimson at
+   full strength sits too close to the maroon to carry text (~1.5:1),
+   so it keeps its job as a *surface* colour, and a lifted variant
+   (--accent-bright) does the work that needs to be legible: carets,
+   links, labels, focus rings.
+
+   Same idea as the per-app token blocks under each app in projects/.
+   =================================================================== */
+
+:root {
+	/* --- surfaces --- */
+	--bg:            #331D23;  /* page background — unchanged             */
+	--bg-elevated:   #3B242A;  /* subtle lift for grouped content         */
+	--surface:       #44282F;  /* cards                                   */
+	--surface-hover: #4E2F37;
+
+	/* --- lines --- */
+	--border:        #FFFFFF;              /* card + avatar outlines      */
+	--rule:          rgba(255,255,255,.22);/* internal dividers, hairlines */
+
+	/* --- accent --- */
+	--accent:        #8B0725;  /* the original crimson — fills, borders   */
+	--accent-bright: #8B0725;  /* same red as the card fill, per request */
+	--accent-glow:   rgba(232, 95, 119, 0.14);
+
+	/* --- text --- */
+	--text:          #FFFFFF;  /* live page is pure white everywhere */
+	--text-dim:      #FFFFFF;  /* body copy is NOT dimmed on the live page */
+	--text-faint:    #FFFFFF;  /* live has no grey text at all        */
+
+	/* --- type --- */
+	/* Every value below was measured off the live page's computed
+	   styles, not inferred from its source. */
+	--font:          'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--weight-body:   150;      /* body copy                            */
+	--weight-strong: 400;      /* <strong> — `bolder` off a 150 parent */
+	--weight-bold:   700;      /* nav links and card <h3> titles only  */
+	--step--1:       1rem;     /* 16px  — nav, card copy               */
+	--step-0:        1.2rem;   /* 19.2px — body copy, the house size   */
+	--step-card:     1.17rem;  /* 18.72px — card titles                */
+	--step-1:        1.5rem;   /* 24px  — h1 / section titles          */
+	--step-2:        1.5rem;
+	--step-3:        1.75rem;
+	--step-4:        clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem);
+
+	/* --- spacing --- */
+	--space-1:       0.25rem;
+	--space-2:       0.5rem;
+	--space-3:       0.75rem;
+	--space-4:       1rem;
+	--space-5:       1.5rem;
+	--space-6:       2rem;
+	--space-7:       3rem;
+	--space-8:       4.5rem;
+	--space-9:       7rem;
+
+	/* --- shape & motion --- */
+	--radius:        14px;
+	--radius-lg:     20px;
+	--shell:         1360px; /* 90% of the viewport, capped for ultrawide */
+	--ease:          cubic-bezier(0.22, 0.61, 0.36, 1);
+	--transition:    0.25s var(--ease);
+}
