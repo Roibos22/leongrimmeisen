@@ -37,7 +37,7 @@
 		<div class="privacy-policy-body">
 			<h1>Privacy Policy</h1>
 			<p><strong>Effective:</strong> 15 August 2026<br>
-			<strong>Last updated:</strong> 15 August 2026</p>
+			<strong>Last updated:</strong> 29 September 2026</p>
 
 			<p>This Privacy Policy applies to the mobile application <strong>Doomsday</strong> (the &quot;App&quot;) for iOS devices, developed by Leon Grimmeisen (&quot;we&quot;, &quot;us&quot;).</p>
 
@@ -48,7 +48,7 @@
 			Email: <a href="mailto:lmgrimmeisen@gmail.com">lmgrimmeisen@gmail.com</a></p>
 
 			<h2>2. Data minimisation</h2>
-			<p>The App is built around data minimisation. Using it requires <strong>no registration, no user account and no personal data</strong>. Your lessons, answers, drill results, rating, streak and settings are stored <strong>locally on your device</strong> and are not transmitted to us.</p>
+			<p>The App is built around data minimisation. Using it requires <strong>no registration, no user account and no personal data</strong>. Your lessons, answers, drill results, rating, streak and settings are stored <strong>on your device</strong>. If you are signed in to iCloud, your progress (not your settings) is also kept in <strong>your own private iCloud account</strong> (section 6), which we cannot access. None of it is transmitted to us.</p>
 			<p>In addition:</p>
 			<ul>
 				<li><strong>No location data:</strong> the App does not access your location and collects no geolocation data.</li>
@@ -56,8 +56,8 @@
 				<li><strong>No cross-app tracking:</strong> we do not track you across other companies&#39; apps or websites, and we do not sell or share data with data brokers or for advertising purposes.</li>
 				<li><strong>No artificial intelligence:</strong> the App uses no AI technology to process or analyse your data.</li>
 			</ul>
-			<p>You can erase your locally stored progress at any time in the App under <strong>Settings &rarr; &quot;Delete all training data&quot;</strong>. Deleting the App from your device removes all local data as well.</p>
-			<p>The processing described in the sections below takes place only where you use the relevant feature (in-app purchase, Game Center, reminders) or where you have given your consent (usage analytics).</p>
+			<p>You can erase your answers, ratings and streak at any time in the App under <strong>Settings &rarr; &quot;Delete all training data&quot;</strong> &ndash; on your device and in your iCloud alike. Deleting the App removes the data stored on your device; a copy kept in your iCloud remains until you delete it, either in the App as above or, for everything including your lesson progress, in the iOS Settings under your name &rarr; iCloud &rarr; Manage Account Storage.</p>
+			<p>The processing described in the sections below takes place only where you use the relevant feature (in-app purchase, Game Center, iCloud, reminders) or where you have given your consent (usage analytics).</p>
 
 			<h2>3. Usage analytics with Mixpanel (only with your consent)</h2>
 			<p>Only with your express, prior consent do we use the analytics service <strong>Mixpanel</strong> (provider: Mixpanel, Inc.) to understand how the App is used and to improve it. Before you give consent, <strong>no analytics data whatsoever is collected, stored or transmitted</strong> (opt-in). You are asked once, during onboarding.</p>
@@ -85,25 +85,36 @@
 			<h2>5. Game Center leaderboards (optional)</h2>
 			<p>The App offers optional leaderboards through <strong>Apple Game Center</strong>. These are operated entirely by Apple &ndash; <strong>we run no server and no account system of our own</strong>, and we store no leaderboard data.</p>
 			<ul>
-				<li><strong>Data processed:</strong> if you are signed in to Game Center with your Apple ID, the App submits your Doomsday Rating and your Daily Challenge score to Apple, and displays the rankings Apple returns, including the public Game Center nicknames of other players. Your Apple ID itself is never disclosed to us.</li>
+				<li><strong>Data processed:</strong> if you are signed in to Game Center with your Apple ID, the App submits your Doomsday Rating, your Daily Challenge score and the number of Daily Challenges you have won to Apple, and displays the rankings Apple returns, including the public Game Center nicknames of other players. Your Apple ID itself is never disclosed to us.</li>
 				<li><strong>Purpose:</strong> displaying rankings and comparing scores with other players.</li>
 				<li><strong>Legal basis:</strong> performance of the contract of use (Art. 6(1)(b) GDPR) where you use the feature.</li>
 				<li><strong>Optional:</strong> the App is fully usable when signed out of Game Center; no score is then submitted. You control Game Center, including your visibility and nickname, in the iOS Settings under &quot;Game Center&quot;.</li>
 				<li><strong>Further information:</strong> <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</li>
 			</ul>
 
-			<h2>6. Daily reminder (local notifications)</h2>
+			<h2>6. iCloud sync (Apple CloudKit)</h2>
+			<p>If you are signed in to iCloud on your device, the App backs up your progress to <strong>your own private iCloud account</strong> using Apple&#39;s CloudKit, so that it comes back when you reinstall the App or use it on another device signed in to the same Apple ID. The data sits in a private database that belongs to your Apple account: <strong>we cannot access it</strong>, and it is never transmitted to us &ndash; we run no server of our own.</p>
+			<ul>
+				<li><strong>Data processed:</strong> your training history (the dates and questions asked, the answers given and the response times), your ratings, your game sessions and Daily Challenge results, your daily activity, and which lessons you have completed. Your settings are not synced.</li>
+				<li><strong>Purpose:</strong> backing up your progress and restoring it after a reinstall or on another of your devices.</li>
+				<li><strong>Legal basis:</strong> performance of the contract of use (Art. 6(1)(b) GDPR).</li>
+				<li><strong>Optional &amp; control:</strong> sync takes place only while you are signed in to iCloud with iCloud enabled for the App. The App is fully usable without it and then keeps your progress on your device only. You can switch it off at any time in the iOS Settings under your name &rarr; iCloud. The App shows whether sync is active under <strong>Settings &rarr; &quot;iCloud Sync&quot;</strong>.</li>
+				<li><strong>Provider &amp; storage:</strong> Apple, as your iCloud provider, under Apple&#39;s own terms. Further information: <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</li>
+				<li><strong>Retention:</strong> until you delete it &ndash; your answers, ratings and streak via <strong>Settings &rarr; &quot;Delete all training data&quot;</strong> in the App, everything in the iOS Settings under your name &rarr; iCloud &rarr; Manage Account Storage.</li>
+			</ul>
+
+			<h2>7. Daily reminder (local notifications)</h2>
 			<p>You can enable an optional daily reminder. It is scheduled <strong>entirely on your device</strong> by iOS. There is no push server and no message of any kind is sent to us or to a third party; whether a reminder is due is decided on the device from your locally stored activity. You may revoke the notification permission at any time in the iOS Settings.</p>
 
-			<h2>7. Apple App Store</h2>
+			<h2>8. Apple App Store</h2>
 			<p>The App is distributed through the Apple App Store. In the course of the download and your use of the App Store, Apple may collect data of its own. We have no influence over this. Information on Apple&#39;s processing can be found in the <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</p>
 
-			<h2>8. Contacting us by email</h2>
+			<h2>9. Contacting us by email</h2>
 			<p>If you contact us by email, the details you provide (email address, name if given, content of the message) are used solely to deal with your enquiry.</p>
 			<p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR (steps prior to a contract) or Art. 6(1)(f) GDPR (legitimate interest in answering enquiries).</p>
 			<p><strong>Retention:</strong> email correspondence is deleted once the enquiry has been dealt with, or after any statutory retention periods have expired.</p>
 
-			<h2>9. Your rights</h2>
+			<h2>10. Your rights</h2>
 			<p>Where data of yours is processed, you have the following rights under the GDPR:</p>
 			<ul>
 				<li><strong>Right of access</strong> (Art. 15 GDPR)</li>
@@ -118,13 +129,13 @@
 			<p>To exercise your rights, contact us at: <a href="mailto:lmgrimmeisen@gmail.com">lmgrimmeisen@gmail.com</a></p>
 			<p>Please note that the identifiers described above are pseudonymous and are not linked to your name. To act on a request concerning analytics data we may therefore need the identifier from your device in order to find the relevant records.</p>
 
-			<h2>10. Children</h2>
+			<h2>11. Children</h2>
 			<p>The App is not directed at children under 13, and we do not knowingly collect data from them. Usage analytics is off by default and requires an explicit opt-in. If you believe a child has provided us with data, please contact us and we will delete it.</p>
 
-			<h2>11. Changes to this Privacy Policy</h2>
+			<h2>12. Changes to this Privacy Policy</h2>
 			<p>We may update this Privacy Policy as required. The current version is always available on this page. In the event of material changes, the &quot;Last updated&quot; date above will be adjusted accordingly.</p>
 
-			<h2>12. Contact</h2>
+			<h2>13. Contact</h2>
 			<p>For any questions about data protection, reach us at:<br>
 			<a href="mailto:lmgrimmeisen@gmail.com">lmgrimmeisen@gmail.com</a></p>
 		</div>
