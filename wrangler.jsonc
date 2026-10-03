@@ -1,0 +1,10 @@
+// Cloudflare Worker that serves the Doomsday Method site on doomsdaymethod.com.
+// Workers Builds runs `sh scripts/build-doomsday.sh` then `npx wrangler deploy` on every push to main.
+// "name" must match the Worker's name in the Cloudflare dashboard.
+{
+	"name": "leongrimmeisen",
+	"compatibility_date": "2025-09-01",
+	"assets": {
+		"directory": "./dist/doomsday"
+	}
+}
