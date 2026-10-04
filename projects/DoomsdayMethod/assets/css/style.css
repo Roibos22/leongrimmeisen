@@ -118,7 +118,7 @@ kbd {
 .site-header .wrap { display: flex; align-items: center; gap: 16px; height: 64px; }
 
 .brand {
-	display: flex; align-items: center; gap: 10px;
+	display: flex; align-items: center; gap: 10px; min-height: 44px;
 	font: 800 1.15rem/1 var(--rounded);
 	color: var(--ink); text-decoration: none; letter-spacing: -0.01em;
 }
@@ -225,6 +225,11 @@ kbd {
 	.hero .wrap { grid-template-columns: 1.1fr 0.9fr; }
 }
 .hero h1 em { font-style: normal; color: var(--accent); }
+.kicker {
+	display: block; margin-bottom: 14px;
+	font: 700 0.8rem/1 var(--font); letter-spacing: 0.08em; text-transform: uppercase;
+	color: var(--ink-soft);
+}
 .hero .lede { margin-bottom: 28px; }
 .hero-note { margin-top: 18px; font-size: 0.92rem; color: var(--ink-soft); }
 
@@ -238,8 +243,16 @@ kbd {
 	border: var(--line); border-radius: 12px; background: var(--accent); color: #fff;
 	font: 800 clamp(0.95rem, 3.6vw, 1.25rem)/1 var(--rounded);
 }
-.tile small { display: block; font: 600 0.62rem/1.2 var(--font); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; opacity: 0.9; }
+.tile small { display: block; font: 600 0.7rem/1.2 var(--font); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; opacity: 0.9; }
 .tile-bomb { background: var(--bomb); color: var(--ink); }
+@media (max-width: 640px) {
+	.hero { padding: 36px 0 48px; }
+	.hero .wrap { gap: 28px; }
+	.hero .year-card { padding: 16px; }
+	.hero .year-card .rule { display: none; }
+	.hero .year-card .today { margin-bottom: 12px; }
+	.hero .year-card .verdict { margin-top: 12px; font-size: 0.92rem; }
+}
 .year-card .verdict {
 	margin: 18px 0 0; padding: 12px 14px;
 	background: var(--bomb-bg); border-radius: var(--radius-sm);
@@ -299,6 +312,11 @@ kbd {
 }
 .drill-meta b { color: var(--ink); }
 .drill .solution { text-align: left; }
+.drill-cta {
+	margin: 16px 0 0; padding: 14px 16px; border-radius: var(--radius-sm);
+	background: var(--accent-bg); font-weight: 600; font-size: 0.95rem;
+}
+.drill-cta a { white-space: nowrap; }
 
 /* --------------- SOLUTION STEPS --------------- */
 
@@ -320,16 +338,6 @@ kbd {
 
 .solution { margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--border); }
 .solution[hidden] { display: none; }
-
-/* Walkthrough: one step at a time. */
-.walk .steps > li { transition: opacity 0.25s; }
-.walk .steps > li.is-hidden { display: none; }
-.walk-controls { display: flex; gap: 12px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
-.walk-answer {
-	font: 800 1.6rem/1 var(--rounded); color: var(--ink);
-	background: var(--bomb); border: var(--line); border-radius: 12px; padding: 10px 16px;
-	display: inline-block;
-}
 
 /* --------------- FOUR STEPS --------------- */
 
@@ -380,16 +388,6 @@ kbd {
 /* Screenshot rail — ready for the App Store captures. */
 .shots { display: flex; gap: 18px; overflow-x: auto; padding: 8px 4px 20px; scroll-snap-type: x mandatory; }
 .shots img { width: 240px; flex: none; border-radius: 28px; border: var(--line); box-shadow: var(--lift); scroll-snap-align: start; }
-
-/* --------------- CHECKLIST --------------- */
-
-.checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
-.checklist li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; }
-.checklist li::before {
-	content: "✓"; width: 28px; height: 28px; border-radius: 50%;
-	display: grid; place-content: center;
-	background: var(--good); color: #fff; font-weight: 800; font-size: 0.85rem;
-}
 
 /* --------------- FAQ --------------- */
 
@@ -485,6 +483,20 @@ table.table-center th, table.table-center td { text-align: center; }
 .legal h2 { font-size: 1.35rem; margin-top: 2em; }
 .legal h3 { font-size: 1.1rem; }
 
+/* App strip in the middle of the guide. */
+.app-strip {
+	display: grid; grid-template-columns: 56px 1fr; gap: 14px 16px; align-items: center;
+	margin: 1.8em 0; padding: 18px; border-radius: var(--radius);
+	background: var(--accent-bg); border: 2px solid var(--accent);
+}
+.app-strip img { width: 56px; height: 56px; border-radius: 13px; border: 2px solid var(--ink); }
+.app-strip p { margin: 0; font-size: 0.97rem; }
+.app-strip .store-badge { grid-column: 1 / -1; justify-self: start; }
+@media (min-width: 640px) {
+	.app-strip { grid-template-columns: 56px 1fr auto; }
+	.app-strip .store-badge { grid-column: auto; }
+}
+
 /* Further reading in the guide. */
 .resources { list-style: none; padding: 0; margin: 1em 0 0; display: grid; gap: 10px; }
 .resources li { margin: 0; }
@@ -528,8 +540,9 @@ table.table-center th, table.table-center td { text-align: center; }
 .stat b { display: block; font: 800 1.5rem/1.1 var(--rounded); font-variant-numeric: tabular-nums; }
 .stat span { font-size: 0.78rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; }
 
-.toggle { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; }
-.toggle input { width: 20px; height: 20px; accent-color: var(--accent); }
+.toggle { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 600; font-size: 0.95rem; cursor: pointer; }
+.toggle input { width: 22px; height: 22px; accent-color: var(--accent); }
+.cheat-toggle { cursor: pointer; min-height: 44px; display: flex; align-items: center; font: 700 1.05rem/1.3 var(--rounded); }
 
 .nudge { background: var(--accent-bg); border: 2px solid var(--accent); border-radius: var(--radius); padding: 18px 20px; margin-top: 20px; text-align: left; }
 .nudge p { margin: 0 0 12px; font-weight: 600; }

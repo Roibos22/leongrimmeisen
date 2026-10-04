@@ -13,7 +13,7 @@ function mount(root) {
 	const dateEl = q(".quiz-date");
 	const feedback = q(".feedback"), solution = q(".solution"), nextRow = q(".next-row");
 	const nextBtn = q("[data-next]"), workingBtn = q("[data-working]");
-	const nudge = q(".nudge"), timerEl = q(".timer");
+	const nudge = q(".nudge"), timerEl = q(".timer"), cta = q(".drill-cta");
 
 
 	const session = { answered: 0, correct: 0, streak: 0, time: 0 };
@@ -31,6 +31,7 @@ function mount(root) {
 		solution.hidden = true;
 		nextRow.hidden = true;
 		if (nudge) nudge.hidden = true;
+		if (cta) cta.hidden = true;
 		startedAt = performance.now();
 		clearInterval(tick);
 		if (timerEl) {
@@ -67,6 +68,8 @@ function mount(root) {
 		solution.hidden = right;
 		workingBtn.hidden = !right;
 		nextRow.hidden = false;
+		// A miss is when the app's lessons are most worth a mention.
+		if (cta) cta.hidden = right;
 		if (nudge) {
 			nudge.hidden = session.answered % NUDGE_EVERY !== 0;
 			const count = nudge.querySelector("[data-count]");
