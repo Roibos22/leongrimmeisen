@@ -92,12 +92,6 @@ h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; }
 h3 { font-size: 1.2rem; font-weight: 700; }
 p { margin: 0 0 1em; text-wrap: pretty; }
 
-kbd {
-	font: 600 0.82em/1 var(--mono);
-	padding: 2px 6px; border: 1px solid var(--border); border-bottom-width: 2px;
-	border-radius: 5px; background: var(--surface);
-}
-
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 
 .eyebrow {
@@ -350,11 +344,6 @@ kbd {
 }
 .trainer-card .app-strip { margin-top: 18px; }
 .timer { font: 700 1rem/1 var(--rounded); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-
-/* Touch screens have no keyboard shortcuts to show. */
-@media (hover: none) {
-	.keys-hint { display: none; }
-}
 
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 @media (max-width: 520px) { .stats { grid-template-columns: repeat(2, 1fr); } }

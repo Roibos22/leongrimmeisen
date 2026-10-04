@@ -77,7 +77,6 @@ function mount(root) {
 		}
 		current = null;
 		renderStats();
-		nextBtn.focus({ preventScroll: true });
 	}
 
 	function renderStats() {
@@ -98,22 +97,6 @@ function mount(root) {
 		timerToggle.addEventListener("change", apply);
 		apply();
 	}
-
-	// Keys 0–6 answer (Sunday is 0), Enter gives the next date. Only while the
-	// trainer is on screen, so typing elsewhere on a long page is left alone.
-	let visible = true;
-	new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(root);
-	document.addEventListener("keydown", (event) => {
-		if (!visible || event.metaKey || event.ctrlKey || event.altKey) return;
-		if (event.target.closest("input, select, textarea")) return;
-		if (current && /^[0-6]$/.test(event.key)) {
-			event.preventDefault();
-			answer(Number(event.key));
-		} else if (!current && event.key === "Enter" && !event.target.closest("a, summary")) {
-			event.preventDefault();
-			next();
-		}
-	});
 
 	renderStats();
 	next();

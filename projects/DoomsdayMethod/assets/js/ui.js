@@ -22,7 +22,6 @@ export function renderSteps(list, steps, { answer } = {}) {
 }
 
 // Seven weekday buttons in the app's order, Monday first and Sunday last.
-// Keys 0–6 still answer (Sunday = 0); the trainer handles them.
 const APP_ORDER = [1, 2, 3, 4, 5, 6, 0];
 
 export function weekdayButtons(container, onPick) {
