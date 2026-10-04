@@ -1,14 +1,16 @@
 // The trainer: one date at a time from the whole Gregorian calendar (the app's
-// widest range), shown on a calendar sheet. Mounted in the home page hero and on
-// /trainer/, which adds session stats, the timer toggle and the cheat sheet.
-import { WEEKDAYS, TRAINER_YEARS, solve, randomDate } from "./doomsday.js";
-import { renderSteps, weekdayButtons, showSheet, revealSheet, storage, store } from "./ui.js";
+// widest range). Mounted below the home page hero and on /trainer/, whose page
+// section adds session stats, the timer toggle and the cheat sheet.
+import { WEEKDAYS, TRAINER_YEARS, formatDate, solve, randomDate } from "./doomsday.js";
+import { renderSteps, weekdayButtons, storage, store } from "./ui.js";
 
 const NUDGE_EVERY = 10;
 
 function mount(root) {
 	const q = (sel) => root.querySelector(sel);
-	const sheet = q(".sheet");
+	// Stats and the timer toggle can sit outside the card, elsewhere on the trainer page.
+	const scope = root.closest("[data-trainer-page]") || root;
+	const dateEl = q(".quiz-date");
 	const feedback = q(".feedback"), solution = q(".solution"), nextRow = q(".next-row");
 	const nextBtn = q("[data-next]"), workingBtn = q("[data-working]");
 	const nudge = q(".nudge"), timerEl = q(".timer");
@@ -23,7 +25,7 @@ function mount(root) {
 	function next() {
 		const date = randomDate(TRAINER_YEARS[0], TRAINER_YEARS[1]);
 		current = { ...date, solution: solve(date.year, date.month, date.day) };
-		showSheet(sheet, date);
+		dateEl.textContent = formatDate(date.year, date.month, date.day);
 		pad.reset();
 		feedback.hidden = true;
 		solution.hidden = true;
@@ -45,7 +47,6 @@ function mount(root) {
 		const s = current.solution;
 		const right = picked === s.weekday;
 		pad.reveal(picked, s.weekday);
-		revealSheet(sheet, s.weekday, right);
 
 		session.answered++;
 		if (right) {
@@ -77,7 +78,7 @@ function mount(root) {
 	}
 
 	function renderStats() {
-		const set = (key, value) => { for (const node of root.querySelectorAll(`[data-stat="${key}"]`)) node.textContent = value; };
+		const set = (key, value) => { for (const node of scope.querySelectorAll(`[data-stat="${key}"]`)) node.textContent = value; };
 		set("streak", String(session.streak));
 		set("best", String(best));
 		set("accuracy", session.answered ? `${Math.round((100 * session.correct) / session.answered)}%` : "–");
@@ -87,7 +88,7 @@ function mount(root) {
 	nextBtn.addEventListener("click", next);
 	workingBtn.addEventListener("click", () => { solution.hidden = false; workingBtn.hidden = true; });
 
-	const timerToggle = root.querySelector("[data-timer-toggle]");
+	const timerToggle = scope.querySelector("[data-timer-toggle]");
 	if (timerToggle && timerEl) {
 		const apply = () => { timerEl.hidden = !timerToggle.checked; store("dm.timer", timerToggle.checked); };
 		timerToggle.checked = storage("dm.timer", true);

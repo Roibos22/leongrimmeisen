@@ -1,5 +1,5 @@
 // Small DOM helpers shared by the home page, the guide, the trainer and the day finder.
-import { WEEKDAYS, WEEKDAYS_SHORT, MONTHS } from "./doomsday.js";
+import { WEEKDAYS, WEEKDAYS_SHORT } from "./doomsday.js";
 
 export function el(tag, attrs = {}, ...children) {
 	const node = document.createElement(tag);
@@ -44,26 +44,6 @@ export function weekdayButtons(container, onPick) {
 			for (const b of buttons) { b.disabled = false; b.classList.remove("is-right", "is-wrong"); }
 		},
 	};
-}
-
-// The calendar sheet: month band, big day, year, and a slot the weekday drops into.
-export function showSheet(sheet, { year, month, day }) {
-	sheet.querySelector(".sheet-month").textContent = MONTHS[month - 1];
-	sheet.querySelector(".sheet-day").textContent = String(day);
-	sheet.querySelector(".sheet-year").textContent = String(year);
-	const slot = sheet.querySelector(".sheet-weekday");
-	slot.textContent = "Which weekday?";
-	slot.className = "sheet-weekday";
-	sheet.setAttribute("aria-label", `${day} ${MONTHS[month - 1]} ${year}`);
-	sheet.classList.remove("is-new");
-	void sheet.offsetWidth;  // restart the entrance animation
-	sheet.classList.add("is-new");
-}
-
-export function revealSheet(sheet, weekday, right) {
-	const slot = sheet.querySelector(".sheet-weekday");
-	slot.textContent = WEEKDAYS[weekday];
-	slot.className = `sheet-weekday ${right ? "is-right" : "is-wrong"}`;
 }
 
 export function storage(key, fallback) {

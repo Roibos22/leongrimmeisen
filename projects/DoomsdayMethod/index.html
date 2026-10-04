@@ -82,38 +82,61 @@
 	</header>
 
 	<main>
-		<!-- HERO: the trainer, right away -->
+		<!-- HERO -->
 		<section class="hero">
 			<div class="wrap">
-				<div class="hero-intro">
+				<div>
 					<p class="eyebrow">The Doomsday method · for iPhone</p>
 					<h1>Name the weekday of any date. <em>In&nbsp;your&nbsp;head.</em></h1>
-				</div>
-				<div class="hero-pitch">
-					<p class="lede">Someone names a date, and you tell them the weekday in a few seconds. John Conway's method makes it four small steps. Try one right here, or learn it in the app.</p>
+					<p class="lede">Someone names a date: their birthday, the moon landing, a Tuesday in 2087. You tell them the weekday in a few seconds, with no calendar and no phone. Doomsday teaches John Conway's method for exactly that: four small steps and about a dozen facts.</p>
 					<div class="actions">
 						<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
-						<a class="btn" href="doomsday-algorithm/">How it works</a>
+						<a class="btn" href="#try">Try it below</a>
 					</div>
 					<p class="hero-note">Free to start · No account · No ads · No subscription</p>
 				</div>
 
-				<div class="drill" data-trainer>
-					<div class="sheet" aria-live="polite">
-						<div class="sheet-month">&nbsp;</div>
-						<div class="sheet-day">&nbsp;</div>
-						<div class="sheet-year">&nbsp;</div>
-						<div class="sheet-weekday">Which weekday?</div>
+				<div class="card year-card" data-year-card>
+					<p class="today">The trick that makes it possible</p>
+					<p class="rule">In any year, these five dates fall on the same weekday, the year's doomsday:</p>
+					<div class="tiles">
+						<div class="tile">4/4</div>
+						<div class="tile">6/6</div>
+						<div class="tile tile-bomb">8/8</div>
+						<div class="tile">10/10</div>
+						<div class="tile">12/12</div>
 					</div>
-					<div class="weekdays"></div>
-					<p class="feedback" role="status" hidden></p>
-					<div class="next-row" hidden>
-						<button class="btn btn-primary" type="button" data-next>Next date</button>
-						<button class="btn-ghost btn" type="button" data-working>Show the working</button>
+					<p class="verdict">Learn one weekday, and you have the whole year.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- TRAINER -->
+		<section class="section section-white" id="try">
+			<div class="wrap">
+				<div class="section-head center" style="text-align:center">
+					<p class="eyebrow">Free trainer</p>
+					<h2>Your turn.</h2>
+					<p class="lede" style="margin:0 auto">Any date from 1583 to 2599. Not sure how yet? Answer anyway and look at the working, or read <a href="doomsday-algorithm/">how it works</a> first.</p>
+				</div>
+				<div class="drill">
+					<div class="card drill-card" data-trainer>
+						<div class="prompt-top">
+							<p class="eyebrow" style="margin:0">Your date</p>
+							<span class="drill-meta" style="margin:0"><span>Streak <b data-stat="streak">0</b></span><span>Best <b data-stat="best">0</b></span></span>
+						</div>
+						<p class="quiz-date" aria-live="polite">&nbsp;</p>
+						<p class="quiz-sub">Which weekday is this?</p>
+						<div class="weekdays"></div>
+						<p class="feedback" role="status" hidden></p>
+						<div class="next-row" hidden>
+							<button class="btn btn-primary" type="button" data-next>Next date</button>
+							<button class="btn-ghost btn" type="button" data-working>Show the working</button>
+						</div>
+						<div class="solution" hidden><ol class="steps"></ol></div>
+						<noscript><p>Turn on JavaScript to try a date here, or read <a href="doomsday-algorithm/">how it works</a>.</p></noscript>
 					</div>
-					<div class="solution" hidden><ol class="steps"></ol></div>
-					<p class="drill-meta"><span>Streak <b data-stat="streak">0</b></span><span>Best <b data-stat="best">0</b></span><a href="trainer/">Full trainer →</a></p>
-					<noscript><p>Turn on JavaScript to try a date here, or read <a href="doomsday-algorithm/">how it works</a>.</p></noscript>
+					<p class="drill-meta"><a href="trainer/">Open the full trainer →</a></p>
 				</div>
 			</div>
 		</section>
@@ -125,18 +148,6 @@
 					<p class="eyebrow">How it works</p>
 					<h2>Four steps, any date</h2>
 					<p class="lede">Steps 1 and 2 give you the year's doomsday. Steps 3 and 4 turn it into an answer. For a date this year, you can skip straight to step 3.</p>
-				</div>
-				<div class="card year-card" data-year-card style="max-width:560px;margin-bottom:28px">
-					<p class="today">The fact that makes it possible</p>
-					<p class="rule">In any year, these five dates fall on the same weekday, the year's doomsday:</p>
-					<div class="tiles">
-						<div class="tile">4/4</div>
-						<div class="tile">6/6</div>
-						<div class="tile tile-bomb">8/8</div>
-						<div class="tile">10/10</div>
-						<div class="tile">12/12</div>
-					</div>
-					<p class="verdict">Learn one weekday, and you have the whole year.</p>
 				</div>
 				<div class="method-grid">
 					<div class="card method-card">
@@ -241,7 +252,7 @@
 				<div class="faq">
 					<details>
 						<summary>Who invented the Doomsday method?</summary>
-						<p>The mathematician John Horton Conway devised it in 1973, building on a method Lewis Carroll published in 1887. Conway named each year's shared weekday its <em>doomsday</em>.</p>
+						<p>The mathematician John Horton Conway devised it in 1973, building on a method Lewis Carroll published in 1887. Conway named each year's shared weekday its <em>doomsday</em>. You can <a href="https://www.youtube.com/watch?v=T_nQG-Bzxsg">watch Conway explain it himself</a>.</p>
 					</details>
 					<details>
 						<summary>How long does it take to learn?</summary>
