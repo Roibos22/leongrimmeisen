@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>What Day of the Week Was It? Day Finder for Any Date</title>
+	<meta name="description" content="Find the day of the week for any date from 1583 to 9999, like the day you were born, and see how to work it out in your head with the Doomsday method.">
+	<link rel="canonical" href="https://doomsdaymethod.com/day-of-the-week/">
+	<meta name="apple-itunes-app" content="app-id=6447447000">
+	<meta name="theme-color" content="#F6F2E9">
+	<link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="../assets/img/favicon-64.png">
+	<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Doomsday">
+	<meta property="og:title" content="What day of the week was it?">
+	<meta property="og:description" content="The weekday of any date, and how to work it out in your head.">
+	<meta property="og:url" content="https://doomsdaymethod.com/day-of-the-week/">
+	<meta property="og:image" content="https://doomsdaymethod.com/assets/img/og-image.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<script type="module" src="../assets/js/site.js"></script>
+	<script type="module" src="../assets/js/day-finder.js"></script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "WebApplication",
+				"name": "Day of the week finder",
+				"url": "https://doomsdaymethod.com/day-of-the-week/",
+				"applicationCategory": "UtilitiesApplication",
+				"operatingSystem": "Any",
+				"browserRequirements": "Requires JavaScript",
+				"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+				"description": "Find the weekday of any date from 1583 to 9999, with the Doomsday method's working shown step by step."
+			},
+			{
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{ "@type": "ListItem", "position": 1, "name": "Doomsday", "item": "https://doomsdaymethod.com/" },
+					{ "@type": "ListItem", "position": 2, "name": "What day was it?", "item": "https://doomsdaymethod.com/day-of-the-week/" }
+				]
+			}
+		]
+	}
+	</script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="wrap">
+			<a class="brand" href="../"><img src="../assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday</a>
+			<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+			<nav class="site-nav" id="site-nav" aria-label="Main">
+				<a href="../doomsday-algorithm/">How it works</a>
+				<a href="../trainer/">Trainer</a>
+				<a href="./" aria-current="page">Day finder</a>
+				<a class="nav-cta" href="https://apps.apple.com/app/id6447447000">Get the app</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<div class="wrap narrow">
+			<div class="page-head">
+				<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Doomsday</a> / What day was it?</nav>
+				<h1>What day of the week was it?</h1>
+				<p class="lede">Type any date from 1583 to 9999, such as your birthday, a wedding or a day in history. You get the weekday, and the Doomsday method's working, so you could have done it in your head.</p>
+			</div>
+
+			<div class="finder" data-finder data-sync-url>
+				<div class="card">
+					<form class="date-form" method="get" action="./">
+						<label>Day <input name="day" type="number" inputmode="numeric" min="1" max="31" required></label>
+						<label>Month
+							<select name="month">
+								<option value="1">January</option><option value="2">February</option><option value="3">March</option>
+								<option value="4">April</option><option value="5">May</option><option value="6">June</option>
+								<option value="7">July</option><option value="8">August</option><option value="9">September</option>
+								<option value="10">October</option><option value="11">November</option><option value="12">December</option>
+							</select>
+						</label>
+						<label>Year <input name="year" type="number" inputmode="numeric" min="1583" max="9999" required></label>
+						<button class="btn btn-primary" type="submit">Find the weekday</button>
+					</form>
+					<p class="form-error" role="alert" hidden></p>
+					<noscript><p>The day finder needs JavaScript. The <a href="../doomsday-algorithm/">guide</a> shows how to do it by hand.</p></noscript>
+				</div>
+
+				<div class="card finder-result" aria-live="polite" hidden>
+					<p class="eyebrow result-date"></p>
+					<p class="result-day"><span></span></p>
+					<h2 class="h3" style="font-size:1.2rem;margin-top:20px">How to work it out in your head</h2>
+					<ol class="steps"></ol>
+					<div class="share-row">
+						<button class="btn" type="button" data-copy>Copy link</button>
+						<a class="btn-ghost btn" href="../doomsday-algorithm/">Learn the method →</a>
+					</div>
+				</div>
+			</div>
+
+			<section class="section-tight">
+				<h2>Famous dates</h2>
+				<ul class="famous">
+					<li><a href="?date=1969-07-20"><b>Sunday</b>20 July 1969 <span>· Moon landing</span></a></li>
+					<li><a href="?date=1989-11-09"><b>Thursday</b>9 November 1989 <span>· Berlin Wall falls</span></a></li>
+					<li><a href="?date=1776-07-04"><b>Thursday</b>4 July 1776 <span>· US Declaration of Independence</span></a></li>
+					<li><a href="?date=1944-06-06"><b>Tuesday</b>6 June 1944 <span>· D-Day</span></a></li>
+					<li><a href="?date=1912-04-15"><b>Monday</b>15 April 1912 <span>· Titanic sinks</span></a></li>
+					<li><a href="?date=2000-01-01"><b>Saturday</b>1 January 2000 <span>· The millennium</span></a></li>
+					<li><a href="?date=2007-06-29"><b>Friday</b>29 June 2007 <span>· First iPhone on sale</span></a></li>
+					<li><a href="?date=1937-12-26"><b>Sunday</b>26 December 1937 <span>· John Conway born</span></a></li>
+					<li><a href="?date=2028-02-29"><b>Tuesday</b>29 February 2028 <span>· Next leap day</span></a></li>
+				</ul>
+			</section>
+
+			<section class="section-tight prose">
+				<h2>How does this work?</h2>
+				<p>Every weekday on this page comes from the <a href="../doomsday-algorithm/">Doomsday algorithm</a>, which mathematician John Conway designed to be done in your head. It rests on one fact: in any year, 4/4, 6/6, 8/8, 10/10 and 12/12 all fall on the same weekday, which Conway called the year's <strong>doomsday</strong>. Every month has a date like that.</p>
+				<p>To find a weekday, you work out the year's doomsday from a weekday for the century and a small number for the year. Then you count from the nearest doomsday date in your month. The working above shows each step for the date you entered.</p>
+				<h3>Why 1583?</h3>
+				<p>The Gregorian calendar began in October 1582. Before that, and in some countries for much longer (Britain and its colonies until September 1752, Russia until 1918), dates were kept in the Julian calendar, which needs a different anchor. The Doomsday app teaches the Julian version too.</p>
+				<div class="callout">
+					<p><strong>Want to do this without a phone?</strong> It takes about a dozen facts and a little practice. Start with the <a href="../doomsday-algorithm/">free guide</a>, practise in the <a href="../trainer/">trainer</a>, or learn it properly in the <a href="https://apps.apple.com/app/id6447447000">Doomsday app</a>.</p>
+				</div>
+			</section>
+		</div>
+
+		<section class="cta-band">
+			<div class="wrap">
+				<div>
+					<h2>Stop looking it up.</h2>
+					<p>Doomsday teaches you to name the weekday of any date in a few seconds.</p>
+				</div>
+				<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div>
+				<a class="brand" href="../"><img src="../assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday</a>
+				<p>Name the weekday of any date, in your head. Made by <a href="https://leongrimmeisen.de/">Leon Grimmeisen</a>.</p>
+			</div>
+			<div>
+				<h3>Learn</h3>
+				<ul>
+					<li><a href="../doomsday-algorithm/">The Doomsday algorithm</a></li>
+					<li><a href="../trainer/">Free trainer</a></li>
+					<li><a href="./">What day was it?</a></li>
+				</ul>
+			</div>
+			<div>
+				<h3>App</h3>
+				<ul>
+					<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
+					<li><a href="../privacy-policy">Privacy Policy</a></li>
+					<li><a href="../terms-and-conditions">Terms &amp; Conditions</a></li>
+					<li><a href="../contact">Contact</a></li>
+				</ul>
+			</div>
+			<div class="footer-base">
+				<span>&copy; <span data-year>2026</span> Leon Grimmeisen</span>
+				<span>Apple, the Apple logo and iPhone are trademarks of Apple Inc.</span>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

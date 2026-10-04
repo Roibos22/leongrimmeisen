@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Doomsday Algorithm: Find the Day of the Week for Any Date</title>
+	<meta name="description" content="How Conway's Doomsday algorithm works, explained the easy way: the month doomsday dates, the century anchors, the year offset and worked examples, with a free cheat sheet.">
+	<link rel="canonical" href="https://doomsdaymethod.com/doomsday-algorithm/">
+	<meta name="apple-itunes-app" content="app-id=6447447000">
+	<meta name="theme-color" content="#F6F2E9">
+	<link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="../assets/img/favicon-64.png">
+	<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="Doomsday">
+	<meta property="og:title" content="The Doomsday algorithm, explained the easy way">
+	<meta property="og:description" content="Name the weekday of any date in your head: four steps, about a dozen facts, worked examples and a cheat sheet.">
+	<meta property="og:url" content="https://doomsdaymethod.com/doomsday-algorithm/">
+	<meta property="og:image" content="https://doomsdaymethod.com/assets/img/og-image.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<script type="module" src="../assets/js/site.js"></script>
+	<script type="module" src="../assets/js/day-finder.js"></script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Article",
+				"headline": "The Doomsday algorithm: how to find the day of the week for any date",
+				"description": "How Conway's Doomsday algorithm works, explained the easy way, with worked examples and a cheat sheet.",
+				"url": "https://doomsdaymethod.com/doomsday-algorithm/",
+				"image": "https://doomsdaymethod.com/assets/img/og-image.png",
+				"datePublished": "2026-10-04",
+				"dateModified": "2026-10-04",
+				"author": { "@type": "Person", "name": "Leon Grimmeisen", "url": "https://leongrimmeisen.de/" },
+				"publisher": { "@type": "Person", "name": "Leon Grimmeisen" }
+			},
+			{
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{ "@type": "ListItem", "position": 1, "name": "Doomsday", "item": "https://doomsdaymethod.com/" },
+					{ "@type": "ListItem", "position": 2, "name": "The Doomsday algorithm", "item": "https://doomsdaymethod.com/doomsday-algorithm/" }
+				]
+			},
+			{
+				"@type": "FAQPage",
+				"mainEntity": [
+					{ "@type": "Question", "name": "What is the Doomsday algorithm?",
+					  "acceptedAnswer": { "@type": "Answer", "text": "A method by mathematician John Conway, published in 1973, for finding the weekday of any date in your head. It uses the fact that certain easy dates, such as 4/4, 6/6, 8/8, 10/10 and 12/12, always share a weekday within a year, called that year's doomsday." } },
+					{ "@type": "Question", "name": "What are the doomsday dates for each month?",
+					  "acceptedAnswer": { "@type": "Answer", "text": "January 3 (January 4 in leap years), the last day of February, March 14, April 4, May 9, June 6, July 11, August 8, September 5, October 10, November 7 and December 12." } },
+					{ "@type": "Question", "name": "What are the century anchor days?",
+					  "acceptedAnswer": { "@type": "Answer", "text": "1800s: Friday. 1900s: Wednesday. 2000s: Tuesday. 2100s: Sunday. The pattern repeats every 400 years, so the 1600s match the 2000s and the 1700s match the 2100s." } },
+					{ "@type": "Question", "name": "How do you calculate the year offset?",
+					  "acceptedAnswer": { "@type": "Answer", "text": "Take the last two digits of the year, add a quarter of them with the remainder dropped, and take away sevens until the result is between 0 and 6. Add that number to the century anchor to get the year's doomsday." } }
+				]
+			}
+		]
+	}
+	</script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="wrap">
+			<a class="brand" href="../"><img src="../assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday</a>
+			<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+			<nav class="site-nav" id="site-nav" aria-label="Main">
+				<a href="./" aria-current="page">How it works</a>
+				<a href="../trainer/">Trainer</a>
+				<a href="../day-of-the-week/">Day finder</a>
+				<a class="nav-cta" href="https://apps.apple.com/app/id6447447000">Get the app</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<div class="wrap">
+			<div class="page-head">
+				<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Doomsday</a> / The Doomsday algorithm</nav>
+				<h1>The Doomsday algorithm: the weekday of any date, in your head</h1>
+				<p class="lede">John Conway's method turns any date into its weekday with four small steps and about a dozen facts. Here's the whole thing, the easy way, in about ten minutes of reading.</p>
+			</div>
+
+			<div class="article-layout">
+				<nav class="toc" aria-label="Contents">
+					<p class="eyebrow">Contents</p>
+					<ol>
+						<li><a href="#lucky-fact">The one fact behind it</a></li>
+						<li><a href="#numbers">Weekdays as numbers</a></li>
+						<li><a href="#month-dates">The twelve doomsday dates</a></li>
+						<li><a href="#this-year">Any date this year</a></li>
+						<li><a href="#century">Century anchors</a></li>
+						<li><a href="#year-offset">The year offset</a></li>
+						<li><a href="#examples">All four steps</a></li>
+						<li><a href="#solver">Try any date</a></li>
+						<li><a href="#cheat-sheet">Cheat sheet</a></li>
+						<li><a href="#faster">Faster year offsets</a></li>
+						<li><a href="#history">Where it comes from</a></li>
+					</ol>
+				</nav>
+
+				<article class="prose">
+					<h2 id="lucky-fact">1. The one fact behind it</h2>
+					<p>Our calendar has a coincidence built into it. In any year, these five dates fall on the <strong>same weekday</strong>:</p>
+					<div class="card card-flat" style="padding:16px">
+						<div class="tiles">
+							<div class="tile">4/4</div><div class="tile">6/6</div><div class="tile tile-bomb">8/8</div><div class="tile">10/10</div><div class="tile">12/12</div>
+						</div>
+					</div>
+					<p>4 April, 6 June, 8 August, 10 October and 12 December. Each one is exactly nine weeks (63 days) after the one before, so they can never drift apart. They read the same in the day/month and month/day conventions, too.</p>
+					<p>Conway called that shared weekday the year's <strong>doomsday</strong>. There's one per year, and the whole method comes down to two questions: what is this year's doomsday, and how far is my date from a doomsday date?</p>
+					<div class="callout"><p><strong>Learn one weekday, get the whole year.</strong> Once you know a year's doomsday, every date in it is a short count away.</p></div>
+
+					<h2 id="numbers">2. Weekdays as numbers</h2>
+					<p>The arithmetic is easier if each weekday is a number. Sunday is 0, and the rest follow:</p>
+					<div class="table-wrap"><table class="table-center">
+						<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+						<tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+					</table></div>
+					<p>Conway's mnemonic: <em>Noneday, Oneday, Twosday, Treblesday, Foursday, Fiveday, Six-a-day.</em></p>
+					<p>The other habit is that <strong>sevens don't matter</strong>. Seven days later is the same weekday, so you can add or take away 7, 14, 21 or 28 whenever it helps. Going 6 days forward is the same as 1 day back.</p>
+
+					<h2 id="month-dates">3. The twelve doomsday dates</h2>
+					<p>Every month has a date that lands on the year's doomsday. You have five already. The rest come with hooks:</p>
+					<div class="table-wrap"><table>
+						<tr><th>Month</th><th>Doomsday date</th><th>How to remember it</th></tr>
+						<tr><td>January</td><td>3rd (4th in a leap year)</td><td>"The 3rd three years in four, the 4th in the fourth"</td></tr>
+						<tr><td>February</td><td>28th (29th in a leap year)</td><td>The last day of February</td></tr>
+						<tr><td>March</td><td>14th</td><td>Pi Day, 3/14</td></tr>
+						<tr><td>April</td><td>4th</td><td rowspan="1">4/4</td></tr>
+						<tr><td>May</td><td>9th</td><td>"I work 9-to-5 at the 7-Eleven": 5/9</td></tr>
+						<tr><td>June</td><td>6th</td><td>6/6</td></tr>
+						<tr><td>July</td><td>11th</td><td>7/11</td></tr>
+						<tr><td>August</td><td>8th</td><td>8/8</td></tr>
+						<tr><td>September</td><td>5th</td><td>9/5</td></tr>
+						<tr><td>October</td><td>10th</td><td>10/10</td></tr>
+						<tr><td>November</td><td>7th</td><td>11/7</td></tr>
+						<tr><td>December</td><td>12th</td><td>12/12</td></tr>
+					</table></div>
+					<p>The odd months pair up and swap: 5/9 and 9/5, 7/11 and 11/7. That's the 7-Eleven sentence. A leap year is any year divisible by 4, except century years, which must be divisible by 400: 2000 was a leap year, 1900 was not.</p>
+					<p><a href="../trainer/?level=months">Practise the month dates in the trainer →</a></p>
+
+					<h2 id="this-year">4. Any date this year</h2>
+					<p>For a date in the current year you can skip straight here, because you only need to know this year's doomsday. It's <strong data-this-doomsday>Saturday</strong> in <span data-year>2026</span>.</p>
+					<p>Take <strong>18 September 2024</strong>, whose year has Thursday as its doomsday:</p>
+					<ol class="steps">
+						<li><div><strong>Month doomsday</strong><p>September's doomsday date is the 5th (9/5), so 5 September 2024 is a Thursday.</p></div></li>
+						<li><div><strong>Jump in sevens</strong><p>5 + 14 = 19, so 19 September is a Thursday too.</p></div></li>
+						<li class="answer-step"><div><strong>Count the rest</strong><p>The 18th is one day earlier: <strong>Wednesday</strong>.</p></div></li>
+					</ol>
+					<p>That's already a party trick: once you've looked up this year's doomsday, anyone's birthday this year is a few seconds away. <a href="../trainer/?level=year">Try it with this year's dates →</a></p>
+
+					<h2 id="century">5. Century anchors</h2>
+					<p>For other years, you build the doomsday yourself from two parts. The first is the century's <strong>anchor</strong>, the doomsday of its year 00. There are only four, and they repeat every 400 years:</p>
+					<div class="table-wrap"><table>
+						<tr><th>Century</th><th>Anchor</th><th class="num">Number</th></tr>
+						<tr><td>1600s, 2000s</td><td>Tuesday</td><td class="num">2</td></tr>
+						<tr><td>1700s, 2100s</td><td>Sunday</td><td class="num">0</td></tr>
+						<tr><td>1800s, 2200s</td><td>Friday</td><td class="num">5</td></tr>
+						<tr><td>1900s, 2300s</td><td>Wednesday</td><td class="num">3</td></tr>
+					</table></div>
+					<p>Almost every date you'll be asked about is in the 1900s or 2000s, so start with two: <strong>1900 is "We-in-dis-day"</strong> (Wednesday), and <strong>2000 is "Y-Tue-K"</strong> (Tuesday).</p>
+
+					<h2 id="year-offset">6. The year offset</h2>
+					<p>The second part is how far the year has moved the doomsday since its century began. Each ordinary year moves it one weekday on, and each leap year two. The classic way to count that is simple and always works:</p>
+					<ol>
+						<li>Take the last two digits of the year, <em>y</em>.</li>
+						<li>Divide <em>y</em> by 4 and drop the remainder. That's the number of leap days so far.</li>
+						<li>Add the two.</li>
+						<li>Take away sevens until you're left with 0 to 6. That's the offset.</li>
+					</ol>
+					<p>Add the offset to the century anchor, and you have the year's doomsday.</p>
+					<div class="calc">1969:  69 ÷ 4 = 17          (drop the remainder)
+       69 + 17 = 86
+       86 − 84 = 2           (84 is twelve weeks)
+       Wednesday + 2 = <span class="hl">Friday</span>   → 1969's doomsday</div>
+					<p><a href="../trainer/?level=doomsday">Practise year doomsdays →</a></p>
+
+					<h2 id="examples">7. All four steps</h2>
+					<p>Put together, every date goes the same way: <strong>century anchor → year offset → month doomsday → count</strong>.</p>
+
+					<h3>The moon landing: 20 July 1969</h3>
+					<div class="calc">Anchor     1900s                      Wednesday
+Offset     69 + 17 = 86 → 2           Wednesday + 2 = Friday
+Month      July → 7/11                11 July is a Friday
+Count      18 July is a Friday (+7), the 20th is 2 later   → <span class="hl">Sunday</span></div>
+
+					<h3>The US Declaration of Independence: 4 July 1776</h3>
+					<div class="calc">Anchor     1700s                      Sunday
+Offset     76 + 19 = 95 → 4           Sunday + 4 = Thursday
+Month      July → 7/11                11 July is a Thursday
+Count      4 July = 11 − 7, same weekday                   → <span class="hl">Thursday</span></div>
+
+					<h3>New Year's Day 2050</h3>
+					<div class="calc">Anchor     2000s                      Tuesday
+Offset     50 + 12 = 62 → 6           Tuesday + 6 = Monday
+Month      January → the 3rd          (2050 is not a leap year)
+Count      1 January is 2 days before the 3rd               → <span class="hl">Saturday</span></div>
+
+					<h2 id="solver">8. Try any date</h2>
+					<p>Enter a date and see the same four steps worked out for it.</p>
+					<div class="finder" data-finder>
+						<div class="card card-flat">
+							<form class="date-form" method="get" action="../day-of-the-week/">
+								<label>Day <input name="day" type="number" inputmode="numeric" min="1" max="31" required></label>
+								<label>Month
+									<select name="month">
+										<option value="1">January</option><option value="2">February</option><option value="3">March</option>
+										<option value="4">April</option><option value="5">May</option><option value="6">June</option>
+										<option value="7">July</option><option value="8">August</option><option value="9">September</option>
+										<option value="10">October</option><option value="11">November</option><option value="12">December</option>
+									</select>
+								</label>
+								<label>Year <input name="year" type="number" inputmode="numeric" min="1583" max="9999" required></label>
+								<button class="btn btn-primary" type="submit">Solve</button>
+							</form>
+							<p class="form-error" role="alert" hidden></p>
+						</div>
+						<div class="card card-flat finder-result" aria-live="polite" hidden>
+							<p class="eyebrow result-date"></p>
+							<p class="result-day"><span></span></p>
+							<ol class="steps"></ol>
+						</div>
+					</div>
+
+					<h2 id="cheat-sheet">9. Cheat sheet</h2>
+					<p>Everything on one card. Print it, or keep it open while you use the <a href="../trainer/">trainer</a>.</p>
+					<div class="card cheat">
+						<div>
+							<h3>Century anchors</h3>
+							<table>
+								<tr><td>1600s, 2000s</td><td>Tuesday</td></tr>
+								<tr><td>1700s, 2100s</td><td>Sunday</td></tr>
+								<tr><td>1800s, 2200s</td><td>Friday</td></tr>
+								<tr><td>1900s, 2300s</td><td>Wednesday</td></tr>
+							</table>
+							<h3 style="margin-top:16px">Year offset</h3>
+							<p class="small" style="margin:0">y + (y ÷ 4, remainder dropped), then take away sevens. Add it to the anchor.</p>
+							<h3 style="margin-top:16px">Weekdays</h3>
+							<p class="small" style="margin:0">Sun 0 · Mon 1 · Tue 2 · Wed 3 · Thu 4 · Fri 5 · Sat 6</p>
+						</div>
+						<div>
+							<h3>Month doomsdays</h3>
+							<table>
+								<tr><td>Jan 3 (leap: 4)</td><td>Jul 11</td></tr>
+								<tr><td>Feb 28 (leap: 29)</td><td>Aug 8</td></tr>
+								<tr><td>Mar 14</td><td>Sep 5</td></tr>
+								<tr><td>Apr 4</td><td>Oct 10</td></tr>
+								<tr><td>May 9</td><td>Nov 7</td></tr>
+								<tr><td>Jun 6</td><td>Dec 12</td></tr>
+							</table>
+							<p class="small" style="margin:12px 0 0">Leap year: divisible by 4; century years only if divisible by 400.</p>
+						</div>
+					</div>
+					<p class="no-print"><button class="btn" type="button" onclick="window.print()">Print the cheat sheet</button></p>
+
+					<h2 id="faster">10. Faster year offsets</h2>
+					<p>The classic offset is the easiest to understand, but it makes you hold three numbers at once. With practice, most people switch to a method that keeps only one in their head. The best known is <strong>Odd + 11</strong>, published by Chamberlain Fong and Michael K. Walters in 2010:</p>
+					<ol>
+						<li>If <em>y</em> is odd, add 11.</li>
+						<li>Halve it.</li>
+						<li>If the result is odd, add 11.</li>
+						<li>Take away sevens, then subtract what's left from 7.</li>
+					</ol>
+					<div class="calc">1969:  69 is odd → 80 → halve → 40 → even
+       40 − 35 = 5 → 7 − 5 = <span class="hl">2</span>     (same offset as before)</div>
+					<p>The Doomsday app teaches several faster routes, from the dozens method Conway used to memorising all hundred offsets outright, and helps you pick the one that suits you.</p>
+
+					<h2 id="history">11. Where it comes from</h2>
+					<p>John Horton Conway, the mathematician best known for the Game of Life, introduced the method in 1973 in a paper called <em>Tomorrow is the Day After Doomsday</em>, in the Cambridge student journal <em>Eureka</em>. He built it on a rule Lewis Carroll had sent to <em>Nature</em> in 1887 and said so himself; his own addition was the doomsday dates for each month. Conway practised constantly: his computer is said to have quizzed him with random dates every time he logged in.</p>
+					<p>It works for any date in the Gregorian calendar, which began in 1582. Dates kept in the older Julian calendar, as in Britain until 1752, need a small adjustment.</p>
+
+					<div class="card" style="margin-top:2.5em">
+						<h3 style="margin-top:0">Turn this into a habit</h3>
+						<p class="muted">Reading the method takes ten minutes. Making it fast takes practice. The Doomsday app has a 48-lesson course built from this method, drills for each step, a Daily Challenge and a rating that tracks your speed. The first 16 lessons are free.</p>
+						<div class="actions">
+							<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+							<a class="btn" href="../trainer/">Free trainer</a>
+						</div>
+					</div>
+
+					<h2 id="faq">Questions</h2>
+					<div class="faq">
+						<details><summary>What is the Doomsday algorithm?</summary><p>A method by mathematician John Conway, published in 1973, for finding the weekday of any date in your head. It uses the fact that certain easy dates, such as 4/4, 6/6, 8/8, 10/10 and 12/12, always share a weekday within a year, called that year's doomsday.</p></details>
+						<details><summary>What are the doomsday dates for each month?</summary><p>January 3 (January 4 in leap years), the last day of February, March 14, April 4, May 9, June 6, July 11, August 8, September 5, October 10, November 7 and December 12.</p></details>
+						<details><summary>What are the century anchor days?</summary><p>1800s: Friday. 1900s: Wednesday. 2000s: Tuesday. 2100s: Sunday. The pattern repeats every 400 years, so the 1600s match the 2000s and the 1700s match the 2100s.</p></details>
+						<details><summary>How do you calculate the year offset?</summary><p>Take the last two digits of the year, add a quarter of them with the remainder dropped, and take away sevens until the result is between 0 and 6. Add that number to the century anchor to get the year's doomsday.</p></details>
+					</div>
+				</article>
+			</div>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div>
+				<a class="brand" href="../"><img src="../assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday</a>
+				<p>Name the weekday of any date, in your head. Made by <a href="https://leongrimmeisen.de/">Leon Grimmeisen</a>.</p>
+			</div>
+			<div>
+				<h3>Learn</h3>
+				<ul>
+					<li><a href="./">The Doomsday algorithm</a></li>
+					<li><a href="../trainer/">Free trainer</a></li>
+					<li><a href="../day-of-the-week/">What day was it?</a></li>
+				</ul>
+			</div>
+			<div>
+				<h3>App</h3>
+				<ul>
+					<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
+					<li><a href="../privacy-policy">Privacy Policy</a></li>
+					<li><a href="../terms-and-conditions">Terms &amp; Conditions</a></li>
+					<li><a href="../contact">Contact</a></li>
+				</ul>
+			</div>
+			<div class="footer-base">
+				<span>&copy; <span data-year>2026</span> Leon Grimmeisen</span>
+				<span>Apple, the Apple logo and iPhone are trademarks of Apple Inc.</span>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

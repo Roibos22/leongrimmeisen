@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://doomsdaymethod.com/sitemap.xml

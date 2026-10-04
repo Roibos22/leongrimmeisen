@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Page not found · Doomsday</title>
+	<meta name="robots" content="noindex">
+	<meta name="theme-color" content="#F6F2E9">
+	<!-- Served by Cloudflare for any missing path, so every link here is root-absolute. -->
+	<link rel="icon" href="/assets/img/favicon.ico" sizes="any">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<script type="module" src="/assets/js/site.js"></script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="wrap">
+			<a class="brand" href="/"><img src="/assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday</a>
+			<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+			<nav class="site-nav" id="site-nav" aria-label="Main">
+				<a href="/doomsday-algorithm/">How it works</a>
+				<a href="/trainer/">Trainer</a>
+				<a href="/day-of-the-week/">Day finder</a>
+				<a class="nav-cta" href="https://apps.apple.com/app/id6447447000">Get the app</a>
+			</nav>
+		</div>
+	</header>
+	<main class="not-found">
+		<div class="wrap narrow">
+			<img src="/assets/img/app-icon-512.png" alt="" width="120" height="120">
+			<h1>This page doesn't exist.</h1>
+			<p class="lede" style="margin:0 auto 28px">Today is a <strong data-today>good day</strong> to learn the Doomsday method, though.</p>
+			<div class="actions" style="justify-content:center">
+				<a class="btn btn-primary" href="/">Go home</a>
+				<a class="btn" href="/trainer/">Open the trainer</a>
+			</div>
+		</div>
+	</main>
+	<script type="module">
+		import { WEEKDAYS } from "/assets/js/doomsday.js";
+		const node = document.querySelector("[data-today]");
+		if (node) node.textContent = WEEKDAYS[new Date().getDay()];
+	</script>
+</body>
+</html>

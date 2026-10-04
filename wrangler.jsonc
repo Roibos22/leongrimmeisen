@@ -8,6 +8,7 @@
 		"command": "sh scripts/build-doomsday.sh"
 	},
 	"assets": {
-		"directory": "./dist/doomsday"
+		"directory": "./dist/doomsday",
+		"not_found_handling": "404-page"
 	}
 }

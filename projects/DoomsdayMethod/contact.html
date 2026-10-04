@@ -2,53 +2,72 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Doomsday - Contact</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Contact · Doomsday</title>
+	<meta name="description" content="Contact details for Doomsday, the iPhone app that teaches the Doomsday method.">
 	<link rel="canonical" href="https://doomsdaymethod.com/contact">
-	<link rel="icon" type="image/x-icon" href="../../assets/facivons/DoomsdayMethod_favicon.ico">
+	<meta name="theme-color" content="#F6F2E9">
+	<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+	<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script src="assets/js/main.js"> </script>
+	<script type="module" src="assets/js/site.js"></script>
 </head>
-<nav class="mobile-nav">
-	<ul>
-		<li><a href="/projects/DoomsdayMethod/index.html">Home</a></li>
-		<li><a href="/projects/DoomsdayMethod/privacy-policy.html">Privacy Policy</a></li>
-		<li><a href="/projects/DoomsdayMethod/terms-and-conditions.html">Terms & Conditions</a></li>
-		<li class="active"><a href="/projects/DoomsdayMethod/contact.html">Contact</a></li>
-	</ul>
-</nav>
 <body>
-	<header>
-		<nav class="desktop-nav">
-			<a href="../../index.html" class="logo-link">
-				<img src="../../assets/img/mugshots/mugshot_fornt_2.jpg" alt="Mugshot of Leon Grimmeisen" class="circular-image">
-			</a>
-			<ul>
-				<li><a href="/projects/DoomsdayMethod/index.html">Home</a></li>
-				<li><a href="/projects/DoomsdayMethod/privacy-policy.html">Privacy Policy</a></li>
-				<li><a href="/projects/DoomsdayMethod/terms-and-conditions.html">Terms & Conditions</a></li>
-				<li class="active"><a href="/projects/DoomsdayMethod/contact.html">Contact</a></li>
-			</ul>
-			<button class="hamburger" >
-				<div class="bar"></div>
-			</button>
-		</nav>
+	<header class="site-header">
+		<div class="wrap">
+			<a class="brand" href="./"><img src="assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday</a>
+			<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+			<nav class="site-nav" id="site-nav" aria-label="Main">
+				<a href="doomsday-algorithm/">How it works</a>
+				<a href="trainer/">Trainer</a>
+				<a href="day-of-the-week/">Day finder</a>
+				<a class="nav-cta" href="https://apps.apple.com/app/id6447447000">Get the app</a>
+			</nav>
+		</div>
 	</header>
+
 	<main>
-		<div class="contact-container">
-			<h1>Contact Details:</h1>
-			<p>lmgrimmeisen@gmail.com</p>
-			<p>+49 174 3629 023</p>
-			<p>Herderstraße 33b, 22085 Hamburg</p>
+		<div class="wrap narrow">
+			<article class="prose legal page-head">
+				<h1>Contact</h1>
+				<p class="lede">Questions about the app, a bug, an idea for a lesson? Write to me, I read everything.</p>
+				<h2>Leon Grimmeisen</h2>
+				<p>Herderstra&szlig;e 33b<br>22085 Hamburg<br>Germany</p>
+				<p>Email: <a href="mailto:lmgrimmeisen@gmail.com">lmgrimmeisen@gmail.com</a><br>Phone: <a href="tel:+491743629023">+49 174 3629 023</a></p>
+				<p class="muted small">Responsible for the content of this website and the Doomsday app.</p>
+			</article>
 		</div>
 	</main>
-	<footer>
-		<div class="footer-links">
-			<a href="/projects/DoomsdayMethod/privacy-policy.html">Privacy Policy</a>
-			<a href="/projects/DoomsdayMethod/terms-and-conditions.html">Terms &amp; Conditions</a>
-			<a href="/projects/DoomsdayMethod/contact.html">Contact</a>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div>
+				<a class="brand" href="./"><img src="assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday</a>
+				<p>Name the weekday of any date, in your head. Made by <a href="https://leongrimmeisen.de/">Leon Grimmeisen</a>.</p>
+			</div>
+			<div>
+				<h3>Learn</h3>
+				<ul>
+					<li><a href="doomsday-algorithm/">The Doomsday algorithm</a></li>
+					<li><a href="trainer/">Free trainer</a></li>
+					<li><a href="day-of-the-week/">What day was it?</a></li>
+				</ul>
+			</div>
+			<div>
+				<h3>App</h3>
+				<ul>
+					<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
+					<li><a href="privacy-policy">Privacy Policy</a></li>
+					<li><a href="terms-and-conditions">Terms &amp; Conditions</a></li>
+					<li><a href="contact" aria-current="page">Contact</a></li>
+				</ul>
+			</div>
+			<div class="footer-base">
+				<span>&copy; <span data-year>2026</span> Leon Grimmeisen</span>
+				<span>Apple, the Apple logo and iPhone are trademarks of Apple Inc.</span>
+			</div>
 		</div>
-		<p class="copyright">&copy; 2026 Leon Grimmeisen</p>
 	</footer>
 </body>
 </html>
