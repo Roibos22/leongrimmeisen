@@ -262,12 +262,10 @@ kbd {
 	box-shadow: 2px 2px 0 var(--ink); cursor: pointer;
 	transition: transform 0.06s, box-shadow 0.06s, background 0.15s;
 }
-.weekday kbd { display: block; font: 500 0.68rem/1 var(--font); color: var(--ink-faint); margin-top: 4px; padding: 0; border: 0; background: none; }
 .weekday:hover { background: var(--accent-bg); }
 .weekday:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--ink); }
 .weekday.is-right { background: var(--good); color: #fff; }
 .weekday.is-wrong { background: var(--bad); color: #fff; }
-.weekday.is-right kbd, .weekday.is-wrong kbd { color: rgba(255, 255, 255, 0.8); }
 .weekday:disabled { cursor: default; }
 .weekday:disabled:not(.is-right):not(.is-wrong) { opacity: 0.45; }
 
@@ -517,7 +515,7 @@ table.table-center th, table.table-center td { text-align: center; }
 
 /* Touch screens have no keyboard shortcuts to show. */
 @media (hover: none) {
-	.weekday kbd, .keys-hint { display: none; }
+	.keys-hint { display: none; }
 }
 
 /* --------------- TRAINER PAGE --------------- */

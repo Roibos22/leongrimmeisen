@@ -22,13 +22,13 @@ export function renderSteps(list, steps, { answer } = {}) {
 }
 
 // Seven weekday buttons in the app's order, Monday first and Sunday last.
-// Each shows its number (Sunday = 0), which is also its keyboard shortcut.
+// Keys 0–6 still answer (Sunday = 0); the trainer handles them.
 const APP_ORDER = [1, 2, 3, 4, 5, 6, 0];
 
 export function weekdayButtons(container, onPick) {
 	const buttons = APP_ORDER.map((i) => el("button",
 		{ type: "button", class: "weekday", "aria-label": WEEKDAYS[i], "data-day": String(i), onclick: () => onPick(i) },
-		WEEKDAYS_SHORT[i], el("kbd", { text: String(i) }),
+		WEEKDAYS_SHORT[i],
 	));
 	container.replaceChildren(...buttons);
 	return {
