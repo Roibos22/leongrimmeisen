@@ -24,25 +24,18 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@graph": [
-			{
-				"@type": "WebApplication",
-				"name": "Doomsday trainer",
-				"url": "https://doomsdaymethod.com/trainer/",
-				"applicationCategory": "EducationalApplication",
-				"operatingSystem": "Any",
-				"browserRequirements": "Requires JavaScript",
-				"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-				"description": "A free online trainer for the Doomsday method: a random date from 1583 to 2599, name its weekday and see the working."
-			},
-			{
-				"@type": "BreadcrumbList",
-				"itemListElement": [
-					{ "@type": "ListItem", "position": 1, "name": "Doomsday Method", "item": "https://doomsdaymethod.com/" },
-					{ "@type": "ListItem", "position": 2, "name": "Trainer", "item": "https://doomsdaymethod.com/trainer/" }
-				]
-			}
-		]
+		"@type": "WebApplication",
+		"name": "Doomsday trainer",
+		"url": "https://doomsdaymethod.com/trainer/",
+		"applicationCategory": "EducationalApplication",
+		"operatingSystem": "Any",
+		"browserRequirements": "Requires JavaScript",
+		"offers": {
+			"@type": "Offer",
+			"price": "0",
+			"priceCurrency": "USD"
+		},
+		"description": "A free online trainer for the Doomsday method: a random date from 1583 to 2599, name its weekday and see the working."
 	}
 	</script>
 </head>
@@ -53,26 +46,25 @@
 			<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
 			<nav class="site-nav" id="site-nav" aria-label="Main">
 				<a href="../doomsday-algorithm/">How it works</a>
-				<a href="./" aria-current="page">Trainer</a>
+				<a href="../trainer/" aria-current="page">Trainer</a>
 				<a href="../day-of-the-week/">Day finder</a>
 				<a class="nav-cta" href="https://apps.apple.com/app/id6447447000">Get the app</a>
 			</nav>
 		</div>
 	</header>
 
-	<main>
-		<div class="wrap narrow">
-			<div class="page-head center">
-				<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Doomsday Method</a> / Trainer</nav>
+	<main class="page">
+		<div class="read">
+			<header class="page-head">
 				<h1>Doomsday trainer</h1>
-				<p class="lede" style="margin:0 auto">Any date from 1583 to 2599. Name its weekday, then check the working.<span class="keys-hint"> Keys <kbd>0</kbd>–<kbd>6</kbd> answer (Sunday is 0), <kbd>Enter</kbd> gives the next date.</span></p>
-			</div>
+				<p class="lede">Any date from 1583 to 2599. Name its weekday, then check the working.<span class="keys-hint"> Keys <kbd>0</kbd>–<kbd>6</kbd> answer (Sunday is 0), <kbd>Enter</kbd> gives the next date.</span></p>
+			</header>
 
-			<div class="drill" data-trainer-page>
-				<div class="card drill-card" data-trainer>
+			<div class="stack" data-trainer-page>
+				<div class="card trainer-card" data-trainer>
 					<div class="prompt-top">
-						<p class="eyebrow" style="margin:0">Your date</p>
-						<span class="drill-meta" style="margin:0"><span class="timer" aria-hidden="true">0.0 s</span></span>
+						<p class="eyebrow">Your date</p>
+						<span class="timer" aria-hidden="true">0.0 s</span>
 					</div>
 					<p class="quiz-date" aria-live="polite">&nbsp;</p>
 					<p class="quiz-sub">Which weekday is this?</p>
@@ -84,79 +76,62 @@
 					</div>
 					<div class="solution" hidden><ol class="steps"></ol></div>
 					<p class="drill-cta" hidden>Want these right every time? <a href="https://apps.apple.com/app/id6447447000">The Doomsday app's free lessons teach each step →</a></p>
-				<div class="nudge" hidden>
-					<p><span data-count>10</span> dates done. The Doomsday app takes it from here: a 48-lesson course, ten drills that each target one step, a rating and Game Center leaderboards.</p>
-					<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45" style="height:45px"></a>
-				</div>
-				<noscript><p>The trainer needs JavaScript. The <a href="../doomsday-algorithm/">guide</a> works without it.</p></noscript>
+						<div class="app-strip nudge" hidden>
+							<img src="../assets/img/app-icon-96.png" alt="" width="56" height="56">
+							<div class="app-strip-text"><p><strong><span data-count>10</span> dates done.</strong> The Doomsday app takes it from here: a 48-lesson course, ten drills that each target one step, a rating and leaderboards.</p></div>
+							<div class="actions"><a class="store-badge is-small" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45"></a></div>
+						</div>
+					<noscript><p>The trainer needs JavaScript. The <a href="../doomsday-algorithm/">guide</a> works without it.</p></noscript>
 				</div>
 
-				<div class="card card-flat" style="margin-top:40px">
-					<h2 style="font-size:1.15rem">This session</h2>
+				<section class="card card-flat">
+					<div class="stats-head">
+						<h2>This session</h2>
+						<label class="toggle"><input type="checkbox" data-timer-toggle checked> Show the timer</label>
+					</div>
 					<div class="stats">
 						<div class="stat"><b data-stat="streak">0</b><span>Streak</span></div>
 						<div class="stat"><b data-stat="best">0</b><span>Best streak</span></div>
 						<div class="stat"><b data-stat="accuracy">–</b><span>Accuracy</span></div>
 						<div class="stat"><b data-stat="time">–</b><span>Avg. time</span></div>
 					</div>
-					<label class="toggle" style="margin-top:16px"><input type="checkbox" data-timer-toggle checked> Show the timer</label>
-				</div>
-			</div>
+				</section>
 
-			<details class="card card-flat" style="margin-top:20px">
-				<summary class="cheat-toggle">Cheat sheet</summary>
-				<div class="cheat" style="margin-top:16px">
-					<div>
-						<h3>Century anchors</h3>
-						<table>
-							<tr><td>1800s, 2200s</td><td>Friday</td></tr>
-							<tr><td>1900s, 2300s, 1500s</td><td>Wednesday</td></tr>
-							<tr><td>2000s, 1600s, 2400s</td><td>Tuesday</td></tr>
-							<tr><td>2100s, 1700s, 2500s</td><td>Sunday</td></tr>
-						</table>
-						<p class="small" style="margin:12px 0 0"><strong>Year offset:</strong> y + y ÷ 4 (drop the remainder), then take away sevens.</p>
+				<div class="app-strip">
+					<img src="../assets/img/app-icon-96.png" alt="" width="56" height="56">
+					<div class="app-strip-text">
+						<p><strong>New to this?</strong> The <a href="../doomsday-algorithm/">five-minute guide</a> explains the four steps, and Numberphile has <a href="https://www.youtube.com/watch?v=z2x3SSBVGJU">a good video on it</a>.</p>
+						<p>The Doomsday app teaches it properly, with a 48-lesson course and drills for each step.</p>
 					</div>
-					<div>
-						<h3>Month doomsdays</h3>
-						<p class="small" style="margin:0">Jan 3 (leap 4) · Feb 28 (leap 29) · Mar 14 · Apr 4 · May 9 · Jun 6 · Jul 11 · Aug 8 · Sep 5 · Oct 10 · Nov 7 · Dec 12</p>
-						<p class="small" style="margin:12px 0 0"><strong>Weekdays:</strong> Sun 0 · Mon 1 · Tue 2 · Wed 3 · Thu 4 · Fri 5 · Sat 6</p>
-					</div>
+					<div class="actions"><a class="store-badge is-small" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45"></a></div>
 				</div>
-			</details>
-
-			<div class="card" style="margin:20px 0 72px;background:var(--accent-bg)">
-				<h2 style="font-size:1.25rem">New to this?</h2>
-				<p>The <a href="../doomsday-algorithm/">five-minute guide</a> explains the four steps, and Numberphile has <a href="https://www.youtube.com/watch?v=z2x3SSBVGJU">a good video on it</a> with James Grime. The Doomsday app teaches it properly, with a 48-lesson course, drills for each step and a rating that tracks your speed.</p>
-				<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
 			</div>
 		</div>
 	</main>
 
 	<footer class="site-footer">
 		<div class="wrap">
-			<div>
-				<a class="brand" href="../"><img src="../assets/img/app-icon-96.png" alt="" width="36" height="36">Doomsday Method</a>
-				<p>Name the weekday of any date, in your head. Made by <a href="https://leongrimmeisen.de/">Leon Grimmeisen</a>.</p>
-			</div>
-			<div>
-				<h3>Learn</h3>
-				<ul>
-					<li><a href="../doomsday-algorithm/">The Doomsday algorithm</a></li>
-					<li><a href="./">Free trainer</a></li>
-					<li><a href="../day-of-the-week/">What day was it?</a></li>
-				</ul>
-			</div>
-			<div>
-				<h3>App</h3>
-				<ul>
-					<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
-					<li><a href="../privacy-policy">Privacy Policy</a></li>
-					<li><a href="../terms-and-conditions">Terms &amp; Conditions</a></li>
-					<li><a href="../contact">Contact</a></li>
-				</ul>
+			<div class="footer-cols">
+				<div>
+					<h3>Learn</h3>
+					<ul>
+						<li><a href="../doomsday-algorithm/">The Doomsday algorithm</a></li>
+						<li><a href="../trainer/">Free trainer</a></li>
+						<li><a href="../day-of-the-week/">What day was it?</a></li>
+					</ul>
+				</div>
+				<div>
+					<h3>App</h3>
+					<ul>
+						<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
+						<li><a href="../privacy-policy">Privacy Policy</a></li>
+						<li><a href="../terms-and-conditions">Terms &amp; Conditions</a></li>
+						<li><a href="../contact">Contact</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="footer-base">
-				<span>&copy; <span data-year>2026</span> Leon Grimmeisen</span>
+				<span>&copy; <span data-year>2026</span> Doomsday Method</span>
 				<span>Apple, the Apple logo and iPhone are trademarks of Apple Inc.</span>
 			</div>
 		</div>

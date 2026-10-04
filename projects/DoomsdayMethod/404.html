@@ -25,11 +25,11 @@
 		</div>
 	</header>
 	<main class="not-found">
-		<div class="wrap narrow">
+		<div class="read">
 			<img src="/assets/img/app-icon-512.png" alt="" width="120" height="120">
 			<h1>This page doesn't exist.</h1>
-			<p class="lede" style="margin:0 auto 28px">Today is a <strong data-today>good day</strong> to learn the Doomsday method, though.</p>
-			<div class="actions" style="justify-content:center">
+			<p class="lede">Still, it is <strong data-today>a good day</strong> to learn the Doomsday method.</p>
+			<div class="actions">
 				<a class="btn btn-primary" href="/">Go home</a>
 				<a class="btn" href="/trainer/">Open the trainer</a>
 			</div>
@@ -38,7 +38,7 @@
 	<script type="module">
 		import { WEEKDAYS } from "/assets/js/doomsday.js";
 		const node = document.querySelector("[data-today]");
-		if (node) node.textContent = WEEKDAYS[new Date().getDay()];
+		if (node) node.textContent = `${WEEKDAYS[new Date().getDay()]}, a good day`;
 	</script>
 </body>
 </html>

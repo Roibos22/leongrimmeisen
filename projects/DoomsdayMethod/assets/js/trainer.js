@@ -1,6 +1,6 @@
 // The trainer: one date at a time from the whole Gregorian calendar (the app's
 // widest range). Mounted below the home page hero and on /trainer/, whose page
-// section adds session stats, the timer toggle and the cheat sheet.
+// section adds session stats and the timer toggle.
 import { WEEKDAYS, TRAINER_YEARS, formatDate, solve, randomDate } from "./doomsday.js";
 import { renderSteps, weekdayButtons, storage, store } from "./ui.js";
 

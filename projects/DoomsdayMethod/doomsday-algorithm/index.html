@@ -14,7 +14,7 @@
 	<meta property="og:type" content="article">
 	<meta property="og:site_name" content="Doomsday Method">
 	<meta property="og:title" content="The Doomsday algorithm: how the Doomsday rule works">
-	<meta property="og:description" content="Name the weekday of any date in your head: four steps, about a dozen facts, worked examples and a cheat sheet.">
+	<meta property="og:description" content="Name the weekday of any date in your head: four steps, about a dozen facts and a worked example.">
 	<meta property="og:url" content="https://doomsdaymethod.com/doomsday-algorithm/">
 	<meta property="og:image" content="https://doomsdaymethod.com/assets/img/og-image.png">
 	<meta name="twitter:card" content="summary_large_image">
@@ -24,26 +24,23 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@graph": [
-			{
-				"@type": "Article",
-				"headline": "The Doomsday algorithm: how the Doomsday rule works",
-				"description": "Conway's Doomsday algorithm in five minutes: four steps, about a dozen facts and a worked example.",
-				"url": "https://doomsdaymethod.com/doomsday-algorithm/",
-				"image": "https://doomsdaymethod.com/assets/img/og-image.png",
-				"datePublished": "2026-10-04",
-				"dateModified": "2026-10-05",
-				"author": { "@type": "Person", "name": "Leon Grimmeisen", "url": "https://leongrimmeisen.de/" },
-				"publisher": { "@type": "Person", "name": "Leon Grimmeisen" }
-			},
-			{
-				"@type": "BreadcrumbList",
-				"itemListElement": [
-					{ "@type": "ListItem", "position": 1, "name": "Doomsday Method", "item": "https://doomsdaymethod.com/" },
-					{ "@type": "ListItem", "position": 2, "name": "Doomsday algorithm", "item": "https://doomsdaymethod.com/doomsday-algorithm/" }
-				]
-			}
-		]
+		"@type": "Article",
+		"headline": "The Doomsday algorithm: how the Doomsday rule works",
+		"description": "Conway's Doomsday algorithm in five minutes: four steps, about a dozen facts and a worked example.",
+		"url": "https://doomsdaymethod.com/doomsday-algorithm/",
+		"image": "https://doomsdaymethod.com/assets/img/og-image.png",
+		"datePublished": "2026-10-04",
+		"dateModified": "2026-10-05",
+		"author": {
+			"@type": "Organization",
+			"name": "Doomsday Method",
+			"url": "https://doomsdaymethod.com/"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Doomsday Method",
+			"url": "https://doomsdaymethod.com/"
+		}
 	}
 	</script>
 </head>
@@ -53,7 +50,7 @@
 			<a class="brand" href="../"><img src="../assets/img/app-icon-96.png" alt="" width="36" height="36">Doomsday Method</a>
 			<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
 			<nav class="site-nav" id="site-nav" aria-label="Main">
-				<a href="./" aria-current="page">How it works</a>
+				<a href="../doomsday-algorithm/" aria-current="page">How it works</a>
 				<a href="../trainer/">Trainer</a>
 				<a href="../day-of-the-week/">Day finder</a>
 				<a class="nav-cta" href="https://apps.apple.com/app/id6447447000">Get the app</a>
@@ -61,22 +58,25 @@
 		</div>
 	</header>
 
-	<main>
-		<div class="wrap narrow">
-			<div class="page-head">
-				<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Doomsday Method</a> / Doomsday algorithm</nav>
+	<main class="page">
+		<div class="read">
+			<header class="page-head">
 				<h1>The Doomsday algorithm</h1>
 				<p class="lede">Also called the Doomsday rule or the Doomsday method: John Conway's way to name the weekday of any date in your head. Four steps, about a dozen facts.</p>
-			</div>
+			</header>
 
-			<article class="prose" style="padding-bottom:72px">
+			<article class="prose">
 				<h2 id="idea">The idea</h2>
 				<p>Every year has one weekday, its <strong>doomsday</strong>, that a set of easy dates always share. Know a year's doomsday and any date in it is a short count away.</p>
 				<div class="card year-card" data-year-card>
 					<p class="today">Every year, one weekday</p>
-					<p class="rule">4 April, 6 June, 8 August, 10 October and 12 December always share it:</p>
+					<p class="rule">4 April, 6 June, 8 August, 10 October and 12 December always share it.</p>
 					<div class="tiles">
-						<div class="tile">4/4</div><div class="tile">6/6</div><div class="tile tile-bomb">8/8</div><div class="tile">10/10</div><div class="tile">12/12</div>
+						<div class="tile">4/4</div>
+						<div class="tile">6/6</div>
+						<div class="tile tile-bomb">8/8</div>
+						<div class="tile">10/10</div>
+						<div class="tile">12/12</div>
 					</div>
 					<p class="verdict">Learn one weekday, and you have the whole year.</p>
 				</div>
@@ -124,32 +124,31 @@ Offset   69+17=86 → 2    Friday
 Month    July → 7/11     11 Jul: Fri
 Count    18 Jul: Fri, +2 → <span class="hl">Sunday</span></div>
 				<p>The moon landing was on a Sunday. For a date this year, skip straight to step 3: <span data-year>2026</span>'s doomsday is <strong data-this-doomsday>Saturday</strong>.</p>
-
 				<div class="app-strip">
 					<img src="../assets/img/app-icon-96.png" alt="" width="56" height="56">
-					<p><strong>Learn it properly.</strong> The Doomsday app turns these four steps into 48 short lessons with drills. The first 16 are free.</p>
-					<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45" style="height:45px"></a>
+					<div class="app-strip-text"><p><strong>Learn it properly.</strong> The Doomsday app turns these four steps into 48 short lessons with drills. The first 16 are free.</p></div>
+					<div class="actions"><a class="store-badge is-small" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45"></a></div>
 				</div>
 
 				<h2 id="solver">Try any date</h2>
 				<div class="finder" data-finder>
-					<div class="card card-flat">
-						<form class="date-form" method="get" action="../day-of-the-week/">
-							<label>Day <input name="day" type="number" inputmode="numeric" min="1" max="31" required></label>
-							<label>Month
-								<select name="month">
-									<option value="1">January</option><option value="2">February</option><option value="3">March</option>
-									<option value="4">April</option><option value="5">May</option><option value="6">June</option>
-									<option value="7">July</option><option value="8">August</option><option value="9">September</option>
-									<option value="10">October</option><option value="11">November</option><option value="12">December</option>
-								</select>
-							</label>
-							<label>Year <input name="year" type="number" inputmode="numeric" min="1583" max="9999" required></label>
-							<button class="btn btn-primary" type="submit">Solve</button>
-						</form>
-						<p class="form-error" role="alert" hidden></p>
+					<div class="card">
+					<form class="date-form" method="get" action="../day-of-the-week/">
+						<label>Day <input name="day" type="number" inputmode="numeric" min="1" max="31" required></label>
+						<label>Month
+							<select name="month">
+								<option value="1">January</option><option value="2">February</option><option value="3">March</option>
+								<option value="4">April</option><option value="5">May</option><option value="6">June</option>
+								<option value="7">July</option><option value="8">August</option><option value="9">September</option>
+								<option value="10">October</option><option value="11">November</option><option value="12">December</option>
+							</select>
+						</label>
+						<label>Year <input name="year" type="number" inputmode="numeric" min="1583" max="9999" required></label>
+						<button class="btn btn-primary" type="submit">Solve</button>
+					</form>
+					<p class="form-error" role="alert" hidden></p>
 					</div>
-					<div class="card card-flat finder-result" aria-live="polite" hidden>
+					<div class="card finder-result" aria-live="polite" hidden>
 						<p class="eyebrow result-date"></p>
 						<p class="result-day"><span></span></p>
 						<ol class="steps"></ol>
@@ -168,13 +167,11 @@ Count    18 Jul: Fri, +2 → <span class="hl">Sunday</span></div>
 					<li><a href="https://en.wikipedia.org/wiki/Doomsday_rule"><b>Doomsday rule</b><span>Wikipedia · the method, its variants and its history</span></a></li>
 				</ul>
 
-				<div class="card" style="margin-top:2.5em">
-					<h3 style="margin-top:0">Now make it fast</h3>
-					<p class="muted">Speed comes from practice. Try dates in the free trainer, and see the working whenever you miss. The app adds faster year-offset methods such as <a href="https://arxiv.org/abs/1010.0765">Odd + 11</a> and a rating that tracks your speed.</p>
-					<div class="actions">
-						<a class="btn btn-primary" href="../trainer/">Open the free trainer</a>
-						<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
-					</div>
+				<h2 id="practice">Now make it fast</h2>
+				<p>Speed comes from practice. Try dates in the free trainer and look at the working whenever you miss. The app adds faster year-offset methods such as <a href="https://arxiv.org/abs/1010.0765">Odd + 11</a> and a rating that tracks your speed.</p>
+				<div class="actions">
+					<a class="btn btn-primary" href="../trainer/">Open the free trainer</a>
+					<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
 				</div>
 			</article>
 		</div>
@@ -182,29 +179,27 @@ Count    18 Jul: Fri, +2 → <span class="hl">Sunday</span></div>
 
 	<footer class="site-footer">
 		<div class="wrap">
-			<div>
-				<a class="brand" href="../"><img src="../assets/img/app-icon-96.png" alt="" width="36" height="36">Doomsday Method</a>
-				<p>Name the weekday of any date, in your head. Made by <a href="https://leongrimmeisen.de/">Leon Grimmeisen</a>.</p>
-			</div>
-			<div>
-				<h3>Learn</h3>
-				<ul>
-					<li><a href="./">The Doomsday algorithm</a></li>
-					<li><a href="../trainer/">Free trainer</a></li>
-					<li><a href="../day-of-the-week/">What day was it?</a></li>
-				</ul>
-			</div>
-			<div>
-				<h3>App</h3>
-				<ul>
-					<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
-					<li><a href="../privacy-policy">Privacy Policy</a></li>
-					<li><a href="../terms-and-conditions">Terms &amp; Conditions</a></li>
-					<li><a href="../contact">Contact</a></li>
-				</ul>
+			<div class="footer-cols">
+				<div>
+					<h3>Learn</h3>
+					<ul>
+						<li><a href="../doomsday-algorithm/">The Doomsday algorithm</a></li>
+						<li><a href="../trainer/">Free trainer</a></li>
+						<li><a href="../day-of-the-week/">What day was it?</a></li>
+					</ul>
+				</div>
+				<div>
+					<h3>App</h3>
+					<ul>
+						<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
+						<li><a href="../privacy-policy">Privacy Policy</a></li>
+						<li><a href="../terms-and-conditions">Terms &amp; Conditions</a></li>
+						<li><a href="../contact">Contact</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="footer-base">
-				<span>&copy; <span data-year>2026</span> Leon Grimmeisen</span>
+				<span>&copy; <span data-year>2026</span> Doomsday Method</span>
 				<span>Apple, the Apple logo and iPhone are trademarks of Apple Inc.</span>
 			</div>
 		</div>

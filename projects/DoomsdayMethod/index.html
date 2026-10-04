@@ -42,22 +42,60 @@
 				"downloadUrl": "https://apps.apple.com/app/id6447447000",
 				"installUrl": "https://apps.apple.com/app/id6447447000",
 				"image": "https://doomsdaymethod.com/assets/img/app-icon-512.png",
-				"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-				"author": { "@type": "Person", "name": "Leon Grimmeisen", "url": "https://leongrimmeisen.de/" }
+				"offers": {
+					"@type": "Offer",
+					"price": "0",
+					"priceCurrency": "USD"
+				},
+				"author": {
+					"@type": "Organization",
+					"name": "Doomsday Method",
+					"url": "https://doomsdaymethod.com/"
+				}
 			},
 			{
 				"@type": "FAQPage",
 				"mainEntity": [
-					{ "@type": "Question", "name": "Who invented the Doomsday method?",
-					  "acceptedAnswer": { "@type": "Answer", "text": "The mathematician John Horton Conway devised it in 1973, building on a method Lewis Carroll published in 1887. Conway named each year's shared weekday its doomsday." } },
-					{ "@type": "Question", "name": "How long does it take to learn?",
-					  "acceptedAnswer": { "@type": "Answer", "text": "Dates in the current year take an afternoon, because you only need the twelve month dates and a short count. Any date in the 1900s and 2000s takes a couple of weeks of a few minutes a day. Speed comes with practice after that." } },
-					{ "@type": "Question", "name": "Do I need a good memory?",
-					  "acceptedAnswer": { "@type": "Answer", "text": "No. The whole method is about a dozen facts: a weekday for each century and one easy date per month, most of which pair up. The arithmetic never goes beyond adding small numbers and taking away sevens." } },
-					{ "@type": "Question", "name": "Does it work for any year?",
-					  "acceptedAnswer": { "@type": "Answer", "text": "It works for any date in the Gregorian calendar, past or future, because the century anchors repeat every 400 years. For dates before a country switched from the Julian calendar, such as Britain before September 1752, you need a small Julian adjustment, which the app teaches." } },
-					{ "@type": "Question", "name": "Is the Doomsday app free?",
-					  "acceptedAnswer": { "@type": "Answer", "text": "It is free to start: the first 16 lessons, three drills, 30 Classic dates a day and the Daily Challenge every day. Doomsday Pro is a one-time purchase that unlocks the full course, every drill and Time Attack. There is no subscription." } }
+					{
+						"@type": "Question",
+						"name": "Who invented the Doomsday method?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "The mathematician John Horton Conway devised it in 1973, building on a method Lewis Carroll published in 1887. Conway named each year's shared weekday its doomsday."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "How long does it take to learn?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Dates in the current year take an afternoon, because you only need the twelve month dates and a short count. Any date in the 1900s and 2000s takes a couple of weeks of a few minutes a day. Speed comes with practice after that."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Do I need a good memory?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "No. The whole method is about a dozen facts: a weekday for each century and one easy date per month, most of which pair up. The arithmetic never goes beyond adding small numbers and taking away sevens."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Does it work for any year?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "It works for any date in the Gregorian calendar, past or future, because the century anchors repeat every 400 years. For dates before a country switched from the Julian calendar, such as Britain before September 1752, you need a small Julian adjustment, which the app teaches."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "Is the Doomsday app free?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "It is free to start: the first 16 lessons, three drills, 30 Classic dates a day and the Daily Challenge every day. Doomsday Pro is a one-time purchase that unlocks the full course, every drill and Time Attack. There is no subscription."
+						}
+					}
 				]
 			}
 		]
@@ -79,7 +117,6 @@
 	</header>
 
 	<main>
-		<!-- HERO -->
 		<section class="hero">
 			<div class="wrap">
 				<div>
@@ -94,7 +131,7 @@
 
 				<div class="card year-card" data-year-card>
 					<p class="today">The trick that makes it possible</p>
-					<p class="rule">In any year, these five dates fall on the same weekday, the year's doomsday:</p>
+					<p class="rule">Every year, 4/4, 6/6, 8/8, 10/10 and 12/12 share one weekday: the year's doomsday.</p>
 					<div class="tiles">
 						<div class="tile">4/4</div>
 						<div class="tile">6/6</div>
@@ -107,19 +144,18 @@
 			</div>
 		</section>
 
-		<!-- TRAINER -->
 		<section class="section section-white" id="try">
 			<div class="wrap">
-				<div class="section-head center" style="text-align:center">
+				<div class="section-head">
 					<p class="eyebrow">Free trainer</p>
 					<h2>Your turn.</h2>
-					<p class="lede" style="margin:0 auto">Any date from 1583 to 2599. Not sure how yet? Answer anyway and look at the working, or read <a href="doomsday-algorithm/">how it works</a> first.</p>
+					<p class="lede">Any date from 1583 to 2599. Not sure how yet? Answer anyway and look at the working, or read <a href="doomsday-algorithm/">how it works</a> first.</p>
 				</div>
-				<div class="drill">
-					<div class="card drill-card" data-trainer>
+				<div class="measure">
+					<div class="card trainer-card" data-trainer>
 						<div class="prompt-top">
-							<p class="eyebrow" style="margin:0">Your date</p>
-							<span class="drill-meta" style="margin:0"><span>Streak <b data-stat="streak">0</b></span><span>Best <b data-stat="best">0</b></span></span>
+							<p class="eyebrow">Your date</p>
+							<span class="drill-meta"><span>Streak <b data-stat="streak">0</b></span><span>Best <b data-stat="best">0</b></span></span>
 						</div>
 						<p class="quiz-date" aria-live="polite">&nbsp;</p>
 						<p class="quiz-sub">Which weekday is this?</p>
@@ -131,20 +167,19 @@
 						</div>
 						<div class="solution" hidden><ol class="steps"></ol></div>
 						<p class="drill-cta" hidden>Want these right every time? <a href="https://apps.apple.com/app/id6447447000">The Doomsday app's free lessons teach each step →</a></p>
-						<noscript><p>Turn on JavaScript to try a date here, or read <a href="doomsday-algorithm/">how it works</a>.</p></noscript>
+						<noscript><p>The trainer needs JavaScript. The <a href="doomsday-algorithm/">guide</a> works without it.</p></noscript>
 					</div>
-					<p class="drill-meta"><a href="trainer/">Open the full trainer →</a></p>
+					<p class="section-foot"><a href="trainer/">Open the full trainer →</a></p>
 				</div>
 			</div>
 		</section>
 
-		<!-- HOW IT WORKS -->
 		<section class="section" id="how">
 			<div class="wrap">
 				<div class="section-head">
 					<p class="eyebrow">How it works</p>
 					<h2>The Doomsday algorithm in four steps</h2>
-					<p class="lede">Steps 1 and 2 give you the year's doomsday. Steps 3 and 4 turn it into an answer. For a date this year, you can skip straight to step 3.</p>
+					<p class="lede">Steps 1 and 2 give you the year's doomsday. Steps 3 and 4 turn it into an answer. For a date this year, start at step 3.</p>
 				</div>
 				<div class="method-grid">
 					<div class="card method-card">
@@ -168,23 +203,18 @@
 						<div class="chips"><span class="chip">±7 changes nothing</span><span class="chip">never more than 3</span></div>
 					</div>
 				</div>
-
-				<p style="margin-top:24px"><a class="btn" href="doomsday-algorithm/">Read the full Doomsday algorithm guide →</a></p>
+				<p class="section-foot"><a class="btn" href="doomsday-algorithm/">Read the full Doomsday algorithm guide →</a></p>
 			</div>
 		</section>
 
-		<!-- THE APP -->
 		<section class="section section-white" id="app">
 			<div class="wrap">
-				<div class="app-head">
-					<img src="assets/img/app-icon-512.png" alt="Doomsday app icon" width="96" height="96">
-					<div>
-						<p class="eyebrow">Doomsday for iPhone</p>
-						<h2>Go further in the app</h2>
-						<p class="muted">From your first weekday to Julian dates and Easter, with a rating that tracks how good you actually are.</p>
-					</div>
+				<div class="section-head">
+					<img class="app-icon" src="assets/img/app-icon-512.png" alt="Doomsday app icon" width="88" height="88">
+					<p class="eyebrow">Doomsday for iPhone</p>
+					<h2>Go further in the app</h2>
+					<p class="lede">From your first weekday to Julian dates and Easter, with a rating that tracks how good you actually are.</p>
 				</div>
-
 				<div class="grid grid-3">
 					<div class="card feature">
 						<h3><span class="icon icon-blue" aria-hidden="true">💡</span>Learn</h3>
@@ -199,30 +229,29 @@
 						<p>Classic with no clock, a Daily Challenge of five dates the whole world gets the same, and Time Attack. All of it feeds one rating and Game Center leaderboards.</p>
 					</div>
 				</div>
-
 				<!-- Screenshots: drop the App Store captures into assets/img/shots/ and uncomment.
-				<div class="shots" style="margin-top:32px">
+				<div class="shots">
 					<img src="assets/img/shots/01.png" alt="" width="240" height="520" loading="lazy">
 				</div>
 				-->
-
-				<div class="price-line">
+				<div class="app-cta">
 					<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
-					<ul>
+					<ul class="ticks">
 						<li>Free to start</li>
 						<li>One-time unlock, no subscription</li>
 					</ul>
+					<p class="muted small">No account, no ads, no tracking: your progress stays on your iPhone and in your own iCloud. <a href="privacy-policy">Privacy policy</a></p>
 				</div>
-				<p class="muted small" style="margin:18px 0 0">No account, no ads, no tracking: your progress stays on your iPhone and in your own iCloud. <a href="privacy-policy">Privacy policy</a></p>
 			</div>
 		</section>
 
-		<!-- FAQ -->
-		<section class="section section-white" id="faq">
-			<div class="wrap narrow">
-				<p class="eyebrow">Questions</p>
-				<h2>Frequently asked</h2>
-				<div class="faq">
+		<section class="section" id="faq">
+			<div class="wrap">
+				<div class="section-head">
+					<p class="eyebrow">Questions</p>
+					<h2>Frequently asked</h2>
+				</div>
+				<div class="faq measure">
 					<details>
 						<summary>Who invented the Doomsday method?</summary>
 						<p>The mathematician John Horton Conway devised it in 1973, building on a method Lewis Carroll published in 1887. Conway named each year's shared weekday its <em>doomsday</em>. You can <a href="https://www.youtube.com/watch?v=T_nQG-Bzxsg">watch Conway explain it himself</a>.</p>
@@ -246,43 +275,40 @@
 				</div>
 			</div>
 		</section>
-
-		<section class="cta-band">
-			<div class="wrap">
-				<div>
-					<h2>Give it an afternoon.</h2>
-					<p>The first 16 lessons are free.</p>
-				</div>
-				<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
-			</div>
-		</section>
 	</main>
 
-	<footer class="site-footer">
+	<section class="cta-band">
 		<div class="wrap">
 			<div>
-				<a class="brand" href="./"><img src="assets/img/app-icon-96.png" alt="" width="36" height="36">Doomsday Method</a>
-				<p>Name the weekday of any date, in your head. Made by <a href="https://leongrimmeisen.de/">Leon Grimmeisen</a>.</p>
+				<h2>Give it an afternoon.</h2>
+				<p>The first 16 lessons are free.</p>
 			</div>
-			<div>
-				<h3>Learn</h3>
-				<ul>
-					<li><a href="doomsday-algorithm/">The Doomsday algorithm</a></li>
-					<li><a href="trainer/">Free trainer</a></li>
-					<li><a href="day-of-the-week/">What day was it?</a></li>
-				</ul>
-			</div>
-			<div>
-				<h3>App</h3>
-				<ul>
-					<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
-					<li><a href="privacy-policy">Privacy Policy</a></li>
-					<li><a href="terms-and-conditions">Terms &amp; Conditions</a></li>
-					<li><a href="contact">Contact</a></li>
-				</ul>
+			<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+		</div>
+	</section>
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer-cols">
+				<div>
+					<h3>Learn</h3>
+					<ul>
+						<li><a href="doomsday-algorithm/">The Doomsday algorithm</a></li>
+						<li><a href="trainer/">Free trainer</a></li>
+						<li><a href="day-of-the-week/">What day was it?</a></li>
+					</ul>
+				</div>
+				<div>
+					<h3>App</h3>
+					<ul>
+						<li><a href="https://apps.apple.com/app/id6447447000">App Store</a></li>
+						<li><a href="privacy-policy">Privacy Policy</a></li>
+						<li><a href="terms-and-conditions">Terms &amp; Conditions</a></li>
+						<li><a href="contact">Contact</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="footer-base">
-				<span>&copy; <span data-year>2026</span> Leon Grimmeisen</span>
+				<span>&copy; <span data-year>2026</span> Doomsday Method</span>
 				<span>Apple, the Apple logo and iPhone are trademarks of Apple Inc.</span>
 			</div>
 		</div>
