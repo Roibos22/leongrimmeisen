@@ -54,7 +54,7 @@ export function mountFinder(root, { syncUrl = false } = {}) {
 			const url = new URL(location.href);
 			url.search = `?date=${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 			history[push ? "pushState" : "replaceState"](null, "", url);
-			document.title = `${formatDate(year, month, day)} ${verb} a ${name} · Doomsday`;
+			document.title = `${formatDate(year, month, day)} ${verb} a ${name} · Doomsday Method`;
 		}
 	}
 
