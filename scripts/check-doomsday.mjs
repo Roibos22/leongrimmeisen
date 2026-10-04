@@ -1,4 +1,4 @@
-// Checks the site's Doomsday engine against Date for every day 1583–2399,
+// Checks the site's Doomsday engine against Date for every day 1583–2599,
 // plus the worked examples the pages quote. Run by scripts/build-doomsday.sh,
 // so a wrong weekday fails the deploy.
 import { readFileSync } from "node:fs";
@@ -10,7 +10,7 @@ let failures = 0;
 const fail = (msg) => { failures++; if (failures <= 20) console.error("✘ " + msg); };
 
 let days = 0;
-for (let y = 1583; y <= 2399; y++) {
+for (let y = 1583; y <= 2599; y++) {
 	for (let m = 1; m <= 12; m++) {
 		for (let d = 1; d <= dd.daysInMonth(y, m); d++) {
 			const expected = new Date(Date.UTC(y, m - 1, d)).getUTCDay();

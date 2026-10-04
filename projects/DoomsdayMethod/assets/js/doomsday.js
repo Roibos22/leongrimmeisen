@@ -9,6 +9,7 @@ export const MONTHS = ["January", "February", "March", "April", "May", "June",
 
 export const MIN_YEAR = 1583;  // first full Gregorian year
 export const MAX_YEAR = 9999;
+export const TRAINER_YEARS = [1583, 2599];  // the app's "Gregorian" range: the whole calendar
 
 const mod7 = (n) => ((n % 7) + 7) % 7;
 
@@ -117,9 +118,12 @@ export function solve(year, month, day, { knownDoomsday = false } = {}) {
 			text: `${year}'s doomsday is ${WEEKDAYS[doomsday]}.`,
 		});
 	} else {
+		// Only four anchors are worth memorising; any other century repeats one of them.
+		const known = ((century - 1800) % 400 + 400) % 400 + 1800;
+		const like = known === century ? "" : ` (anchors repeat every 400 years, so it matches the ${known}s)`;
 		steps.push({
 			title: "Century anchor",
-			text: `The ${century}s start from ${WEEKDAYS[anchor]}.`,
+			text: `The ${century}s start from ${WEEKDAYS[anchor]}${like}.`,
 			value: WEEKDAYS[anchor],
 		});
 		const yy = String(off.y).padStart(2, "0");

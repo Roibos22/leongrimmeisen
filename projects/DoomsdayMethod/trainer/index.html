@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Free Doomsday Trainer: Practise the Day of the Week Online</title>
-	<meta name="description" content="Practise the Doomsday method for free: five levels from the twelve month dates to any date from 1600 to 2399, with a timer, streaks and the full working for every answer.">
+	<title>Free Doomsday Trainer: Name the Weekday of Any Date</title>
+	<meta name="description" content="Practise the Doomsday method for free: a random date from 1583 to 2599, you name the weekday. Timer, streaks and the full mental working for every answer.">
 	<link rel="canonical" href="https://doomsdaymethod.com/trainer/">
 	<meta name="apple-itunes-app" content="app-id=6447447000">
 	<meta name="theme-color" content="#F6F2E9">
@@ -12,9 +12,9 @@
 	<link rel="icon" type="image/png" href="../assets/img/favicon-64.png">
 	<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 	<meta property="og:type" content="website">
-	<meta property="og:site_name" content="Doomsday">
+	<meta property="og:site_name" content="Doomsday Method">
 	<meta property="og:title" content="Free Doomsday trainer">
-	<meta property="og:description" content="Five levels, from the month dates to any date 1600–2399. Name the weekday, see the working.">
+	<meta property="og:description" content="Any date from 1583 to 2599. Name the weekday, then see the working.">
 	<meta property="og:url" content="https://doomsdaymethod.com/trainer/">
 	<meta property="og:image" content="https://doomsdaymethod.com/assets/img/og-image.png">
 	<meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@
 				"operatingSystem": "Any",
 				"browserRequirements": "Requires JavaScript",
 				"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-				"description": "A free online trainer for the Doomsday method: month dates, this year's dates, year doomsdays and any date from 1600 to 2399."
+				"description": "A free online trainer for the Doomsday method: a random date from 1583 to 2599, name its weekday and see the working."
 			},
 			{
 				"@type": "BreadcrumbList",
@@ -49,7 +49,7 @@
 <body>
 	<header class="site-header">
 		<div class="wrap">
-			<a class="brand" href="../"><img src="../assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday</a>
+			<a class="brand" href="../"><img src="../assets/img/app-icon-512.png" alt="" width="36" height="36">Doomsday Method</a>
 			<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
 			<nav class="site-nav" id="site-nav" aria-label="Main">
 				<a href="../doomsday-algorithm/">How it works</a>
@@ -61,95 +61,72 @@
 	</header>
 
 	<main>
-		<div class="wrap">
-			<div class="page-head">
+		<div class="wrap narrow">
+			<div class="page-head center">
 				<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Doomsday</a> / Trainer</nav>
 				<h1>Doomsday trainer</h1>
-				<p class="lede">Name the weekday, then see the working. Start with the month dates, move up when they're automatic. Keys <kbd>0</kbd>–<kbd>6</kbd> answer (Sunday is 0), <kbd>Enter</kbd> gives the next date.</p>
+				<p class="lede" style="margin:0 auto">Any date from 1583 to 2599. Name its weekday, then check the working.<span class="keys-hint"> Keys <kbd>0</kbd>–<kbd>6</kbd> answer (Sunday is 0), <kbd>Enter</kbd> gives the next date.</span></p>
 			</div>
 
-			<div class="trainer" data-trainer>
-				<div>
-					<div class="levels" role="group" aria-label="Level">
-						<button class="level" type="button" data-level="months" aria-pressed="false">1 · Month dates<small>The twelve doomsdays</small></button>
-						<button class="level" type="button" data-level="year" aria-pressed="false">2 · This year<small>Any date in <span data-year>2026</span></small></button>
-						<button class="level" type="button" data-level="doomsday" aria-pressed="false">3 · Year doomsday<small>1900–2099</small></button>
-						<button class="level" type="button" data-level="any" aria-pressed="false">4 · Any date<small>1900–2099</small></button>
-						<button class="level" type="button" data-level="expert" aria-pressed="false">5 · Expert<small>1600–2399</small></button>
-					</div>
+			<div class="drill" data-trainer>
+				<p class="drill-meta"><span class="timer" aria-hidden="true">0.0 s</span><span>Streak <b data-stat="streak">0</b></span><span>Best <b data-stat="best">0</b></span></p>
+				<div class="sheet" aria-live="polite">
+					<div class="sheet-month">&nbsp;</div>
+					<div class="sheet-day">&nbsp;</div>
+					<div class="sheet-year">&nbsp;</div>
+					<div class="sheet-weekday">Which weekday?</div>
+				</div>
+				<div class="weekdays"></div>
+				<p class="feedback" role="status" hidden></p>
+				<div class="next-row" hidden>
+					<button class="btn btn-primary" type="button" data-next>Next date</button>
+					<button class="btn-ghost btn" type="button" data-working>Show the working</button>
+				</div>
+				<div class="solution" hidden><ol class="steps"></ol></div>
+				<div class="nudge" hidden>
+					<p><span data-count>10</span> dates done. The Doomsday app takes it from here: a 48-lesson course, ten drills that each target one step, a rating and Game Center leaderboards.</p>
+					<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45" style="height:45px"></a>
+				</div>
+				<noscript><p>The trainer needs JavaScript. The <a href="../doomsday-algorithm/">guide</a> works without it.</p></noscript>
 
-					<div class="card prompt-card">
-						<div class="prompt-top">
-							<p class="eyebrow" style="margin:0">Your date</p>
-							<span class="timer" aria-hidden="true">0.0 s</span>
-						</div>
-						<p class="quiz-date" aria-live="polite">&nbsp;</p>
-						<p class="quiz-sub">&nbsp;</p>
-						<div class="weekdays"></div>
-						<div class="choices-num" hidden></div>
-						<p class="feedback" role="status" hidden></p>
-						<div class="next-row" hidden>
-							<button class="btn btn-primary" type="button" data-next>Next date</button>
-							<button class="btn-ghost btn" type="button" data-working>Show the working</button>
-						</div>
-						<div class="solution" hidden><ol class="steps"></ol></div>
-						<div class="nudge" hidden>
-							<p><span data-count>10</span> dates done. The Doomsday app takes it from here: a 48-lesson course, ten drills that each target one step, a rating and Game Center leaderboards.</p>
-							<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45" style="height:45px"></a>
-						</div>
-						<noscript><p>The trainer needs JavaScript. The <a href="../doomsday-algorithm/">guide</a> works without it.</p></noscript>
+				<div class="card card-flat" style="margin-top:40px">
+					<h2 style="font-size:1.15rem">This session</h2>
+					<div class="stats">
+						<div class="stat"><b data-stat="streak">0</b><span>Streak</span></div>
+						<div class="stat"><b data-stat="best">0</b><span>Best streak</span></div>
+						<div class="stat"><b data-stat="accuracy">–</b><span>Accuracy</span></div>
+						<div class="stat"><b data-stat="time">–</b><span>Avg. time</span></div>
+					</div>
+					<label class="toggle" style="margin-top:16px"><input type="checkbox" data-timer-toggle checked> Show the timer</label>
+				</div>
+			</div>
+
+			<details class="card card-flat" style="margin-top:20px">
+				<summary style="cursor:pointer;font:700 1.05rem/1.3 var(--rounded)">Cheat sheet</summary>
+				<div class="cheat" style="margin-top:16px">
+					<div>
+						<h3>Century anchors</h3>
+						<table>
+							<tr><td>1800s, 2200s</td><td>Friday</td></tr>
+							<tr><td>1900s, 2300s, 1500s</td><td>Wednesday</td></tr>
+							<tr><td>2000s, 1600s, 2400s</td><td>Tuesday</td></tr>
+							<tr><td>2100s, 1700s, 2500s</td><td>Sunday</td></tr>
+						</table>
+						<p class="small" style="margin:12px 0 0"><strong>Year offset:</strong> y + y ÷ 4 (drop the remainder), then take away sevens.</p>
+					</div>
+					<div>
+						<h3>Month doomsdays</h3>
+						<p class="small" style="margin:0">Jan 3 (leap 4) · Feb 28 (leap 29) · Mar 14 · Apr 4 · May 9 · Jun 6 · Jul 11 · Aug 8 · Sep 5 · Oct 10 · Nov 7 · Dec 12</p>
+						<p class="small" style="margin:12px 0 0"><strong>Weekdays:</strong> Sun 0 · Mon 1 · Tue 2 · Wed 3 · Thu 4 · Fri 5 · Sat 6</p>
 					</div>
 				</div>
+			</details>
 
-				<aside class="side">
-					<div class="card">
-						<h2>This session</h2>
-						<div class="stats">
-							<div class="stat"><b data-stat="streak">0</b><span>Streak</span></div>
-							<div class="stat"><b data-stat="best">0</b><span>Best streak</span></div>
-							<div class="stat"><b data-stat="accuracy">–</b><span>Accuracy</span></div>
-							<div class="stat"><b data-stat="time">–</b><span>Avg. time</span></div>
-						</div>
-						<label class="toggle" style="margin-top:16px"><input type="checkbox" data-timer-toggle checked> Show the timer</label>
-					</div>
-
-					<details class="card cheat-card">
-						<summary style="cursor:pointer;font:700 1.05rem/1.3 var(--rounded)">Cheat sheet</summary>
-						<div style="margin-top:14px;font-size:0.92rem">
-							<p style="margin-bottom:8px"><strong><span data-year>2026</span></strong>: doomsday <strong data-this-doomsday>Saturday</strong>, <span data-this-leap>not a leap year</span>.</p>
-							<table>
-								<tr><th>Century</th><th>Anchor</th></tr>
-								<tr><td>1600s, 2000s</td><td>Tuesday</td></tr>
-								<tr><td>1700s, 2100s</td><td>Sunday</td></tr>
-								<tr><td>1800s, 2200s</td><td>Friday</td></tr>
-								<tr><td>1900s, 2300s</td><td>Wednesday</td></tr>
-							</table>
-							<p style="margin:12px 0 6px"><strong>Year offset:</strong> y + y ÷ 4 (drop the remainder), then take away sevens.</p>
-							<p style="margin:0"><strong>Month dates:</strong> Jan 3 (leap 4) · Feb 28 (leap 29) · Mar 14 · Apr 4 · May 9 · Jun 6 · Jul 11 · Aug 8 · Sep 5 · Oct 10 · Nov 7 · Dec 12</p>
-							<p style="margin:8px 0 0"><strong>Weekdays:</strong> Sun 0 · Mon 1 · Tue 2 · Wed 3 · Thu 4 · Fri 5 · Sat 6</p>
-						</div>
-					</details>
-
-					<div class="card" style="background:var(--accent-bg)">
-						<h2>Learn it properly</h2>
-						<p class="small">The app's course walks you from your first weekday to any date, with drills for each step and a rating that tracks your speed.</p>
-						<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45" style="height:45px"></a>
-					</div>
-				</aside>
+			<div class="card" style="margin:20px 0 72px;background:var(--accent-bg)">
+				<h2 style="font-size:1.25rem">New to this?</h2>
+				<p>The <a href="../doomsday-algorithm/">five-minute guide</a> explains the four steps. The Doomsday app teaches them properly, with a 48-lesson course, drills for each step and a rating that tracks your speed.</p>
+				<a class="store-badge" href="https://apps.apple.com/app/id6447447000"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
 			</div>
-
-			<section class="prose" style="padding-bottom:72px">
-				<h2>How to use the trainer</h2>
-				<p>Each level trains one part of the <a href="../doomsday-algorithm/">Doomsday method</a>, in the order you need it.</p>
-				<ol>
-					<li><strong>Month dates.</strong> The twelve dates that always share the year's doomsday. Get these instant first; everything rests on them.</li>
-					<li><strong>This year.</strong> Dates in the current year, with this year's doomsday given. This is steps 3 and 4, which is a real party trick on its own.</li>
-					<li><strong>Year doomsday.</strong> A year from 1900 to 2099: find its doomsday from the century anchor and the year offset. This is steps 1 and 2.</li>
-					<li><strong>Any date.</strong> All four steps together, 1900–2099. That covers almost every date anyone will ask you.</li>
-					<li><strong>Expert.</strong> 1600–2399, so you need all four century anchors.</li>
-				</ol>
-				<p>Your best streak per level is kept in this browser only. Nothing is sent anywhere.</p>
-			</section>
 		</div>
 	</main>
 
